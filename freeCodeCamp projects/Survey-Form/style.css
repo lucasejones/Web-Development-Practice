@@ -1,0 +1,154 @@
+html, body {
+	height: 100vh;
+	margin: 0;
+}
+
+.bg {
+	/*background-image: url('cosmic-background.jpg');*/
+	/*background-image: url('cosmic-background.jpg'), linear-gradient(rgba(90, 90, 90, 1), rgba(40, 40, 40, 1));*/
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: url('cosmic-background.jpg'), linear-gradient(rgba(16, 24, 78, 0.3), rgba(8, 12, 39, 0.8));
+	background-blend-mode: overlay;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	position: fixed;
+	z-index: -1;
+}
+
+body {
+	padding: 50px;
+	font-family: Tahoma, sans-serif;
+	font-size: 18px;
+	color: #fbfcfc;
+}
+
+
+h1, p {
+	text-align: center;
+}
+
+h1 {
+	margin-bottom: 3rem;
+}
+
+.title {
+	margin-bottom: 2.5rem;
+}
+
+
+form {
+	width: 80vw;
+	min-width: 300px;
+	max-width: 700px;
+	margin: 0 auto;
+	padding-bottom: 4em;
+}
+
+
+fieldset {
+	background-color: rgba(8, 12, 39, 0.8);
+	border: 0.15rem solid #fbfcfc;
+	border-radius: 5px;
+	padding-bottom: 3em;
+}
+
+
+label, input {
+	display: block;
+}
+
+
+label, select, textarea {
+	margin: 2rem;
+	padding-right: 26px;
+}
+
+
+input, select, textarea {
+	margin: 10px 0 0 0;
+	width: 100%;
+	padding: 0 0.75rem;
+	min-height: 2em;
+	font-family: inherit;
+	font-size: inherit;
+	border: 1px solid #fbfcfc;
+	border-radius: 0.3rem;
+}
+
+
+textarea {
+	padding-top: 0.5em;
+}
+
+
+.age-optional, .true-checks {
+	font-size: 0.9rem;
+}
+
+
+.true-checks {
+	display: block;
+}
+
+
+.personality {
+	padding-right: 0;
+}
+
+
+.inline-recommendation, .inline-checks {
+	display: inline;
+	width: unset;
+	vertical-align: middle;
+	margin: 0 0.5em 0 0;
+}
+
+
+#radio-question-1, #radio-question-2, #song-types {
+	margin-bottom: 10px;
+}
+
+
+.radio-1, .radio-2, .checks-1 {
+	margin: 0 0 0 2em;
+}
+
+
+input[type='radio'], input[type='checkbox'] {
+	width: 1.2em;
+	margin-left: 1.2em;
+	padding-left: 1.2em;
+}
+
+
+input[type='submit'] {
+	width: 25%;
+	margin: 0 auto;
+	margin-top: 2.5em;
+	height: 2.5em;
+	font-size: 1.2rem;
+	color: #e6f7e6;
+	background: linear-gradient(#27ae60, #187a2d);
+	border: 1px solid #ababab;
+	border-radius: 1rem;
+}
+
+
+input[type='submit']:hover {
+	cursor: pointer;
+	background: none;
+	background: linear-gradient(#058c40, #076a1c);
+}
+
+
+/*#8e44ad - purple
+#27ae60 - green
+#fbfcfc - white(text)
+#ebedef - off-white
+#1b2631 - off-black*/
+
+

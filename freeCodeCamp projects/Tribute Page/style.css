@@ -1,0 +1,119 @@
+body {
+	font-size: 16px;
+	font-family: 'Montserrat', sans-serif;
+	line-height: 1.7rem;
+	margin: 0;
+}
+
+
+main {
+	background: linear-gradient(162deg, rgba(248,107,107, 0.1), rgba(255,154,154, 0.4));
+	padding: 10px;
+	border-radius: 14px;
+}
+
+
+.title {
+	text-align: center;
+	font-weight: 800;
+	letter-spacing: 3px;
+	font-size: 2.5rem;
+}
+
+
+#title-desc {
+	text-align: center;
+	letter-spacing: 1px;
+	font-style: italic;
+	margin-bottom: 2rem;
+}
+
+
+#img-div {
+	/*background: #f5f6f7;*/
+	padding: 10px;
+	margin: 0px 30px;
+}
+
+
+#image {
+	display: block;
+	max-width: 100%;
+	margin: auto auto;
+	margin-bottom: 30px;
+	height: auto;
+	border: 20px solid #f5f6f7;
+	box-shadow: 0 0 10px black;
+	transform: rotate(0.7deg);
+}
+
+
+#img-caption {
+	text-align: center;
+	font-style: italic;
+}
+
+
+#breaker {
+	max-width: 60%;
+	height: 4px;
+	margin: 20px auto 40px;
+	background: #fdb8b8;
+}
+
+
+#tribute-info p {
+	text-align: center;
+	font-weight: 600;
+	font-size: 1.1rem;
+	margin-bottom: 30px;
+}
+
+
+#main-list {
+	max-width: 50%;
+	margin: 0 auto 40px; 
+}
+
+
+#main-list li {
+	padding-left: 10px;
+	margin-bottom: 15px;
+}
+
+
+#sub-list {
+	width: 80%;
+	margin-top: 10px;
+}
+
+
+#sub-list li {
+	padding-left: 0;
+}
+
+
+.states {
+	font-weight: 500;
+}
+
+
+footer p {
+	text-align: center;
+	font-weight: 600;
+	font-size: 1.1rem;
+}
+
+
+#footbox {
+	margin-top: 50px;
+	height: 40px;
+}
+
+
+#copyright {
+	font-size: 0.8rem;
+	text-align: left;
+	padding-left: 12.8px;
+	font-weight: 400;
+}

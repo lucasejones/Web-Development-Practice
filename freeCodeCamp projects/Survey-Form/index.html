@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset='UTF-8'/>
+	<title>Lucas Jones Music Survey</title>
+	<link rel='stylesheet' href='style.css'/>
+</head>
+<body>
+	<div class='bg'></div>
+	<h1>Lucas Jones Music Survey</h1>
+	<p class='title'><em>Who are you?</em></p>
+
+	<form method='post' action='test'>
+		<fieldset>
+			<label for='name'> Name
+				<input required id='name' name='name' type='text' placeholder='Enter your name'/>
+			</label>
+
+			<label for='email'> Email
+				<input required id='email' name='email' type='email' placeholder='Enter your email'/>
+			</label>
+
+			<label for='age' class='age'> Age <span class='age-optional' >(optional)</span>
+				<input id='age' name='age' type='number' min='18' max='120' placeholder='Age'/>
+			</label>
+
+			<label for='personality' class='personality'>Which of these best describes you? 
+				<select id='personality' name='personality'>
+					<option disabled selected value='' >Select one of the following:</option>
+					<option value='Introvert'>Introvert</option>
+					<option value='Extrovert'>Extrovert</option>
+					<option value='Invertebrate'>Invertebrate</option>
+					<option value='Ex-invertebrate'>Ex-invertebrate</option>
+				</select>
+			</label>
+
+
+
+			<label id='radio-question-1'> Would you recommend my music to your friends?</label>
+
+			<label for='absolutely' class='radio-1'>
+				<input required id='absolutely' name='recommendation-friends' type='radio' class='inline-recommendation' value='Absolutely'/> Absolutely
+			</label>
+
+			<label for='absolutely-not' class='radio-1'>
+				<input required id='absolutely-not' name='recommendation-friends' type='radio' class='inline-recommendation' value='Absolutely not'/> Absolutely not
+			</label>
+
+			<label for='future-uncertain' class='radio-1'>
+				<input required id='future-uncertain' name='recommendation-friends' type='radio' class='inline-recommendation' value='uncertain-future'/> The future is uncertain
+			</label>
+
+			<label id='radio-question-2'> What about your ancestors?</label>
+
+			<label for='mom-dad' class='radio-2'>
+				<input required id='mom-dad' name='recommendation-ancestors' type='radio' class='inline-recommendation' value='mom/dad'/> Mom/Dad
+			</label>
+
+			<label for='grandmom-granddad' class='radio-2'>
+				<input required id='grandmom-granddad' name='recommendation-ancestors' type='radio' class='inline-recommendation' value='gmom-gdad'/> Grandmom/Granddad
+			</label>
+
+			<label for='lineage' class='radio-2'>
+				<input required id='lineage' name='recommendation-ancestors' type='radio' class='inline-recommendation' value='lineage'/> Leave my lineage out of this
+			</label>
+
+
+
+			<label for='preference' class='preference'>What's your favorite song so far? 
+				<select id='preference' name='preference'>
+					<option disabled selected value='' >Select an option:</option>
+					<option value='time-of-night'>The Time of Night</option>
+					<option value='hot-baskets'>Hot Baskets Coming Up</option>
+					<option value='deep-regretz'>Deep Regretz</option>
+					<option value='arent-you'>Aren't You?</option>
+				</select>
+			</label>
+
+
+
+			<label id='song-types'> What sort of songs do you like? <span class='true-checks'>(Check as many of these as are true answers for you.)</span> 
+			</label>
+
+			<label for='sad-ones' class='checks-1'>
+				<input id='sad-ones' name='sad-ones' type='checkbox' class='inline-checks' value='sad-ones'/> Sad ones
+			</label>
+
+			<label for='long-ones' class='checks-1'>
+				<input id='long-ones' name='long-ones' type='checkbox' class='inline-checks' value='long-ones'/> Long ones
+			</label>
+
+			<label for='story-ones' class='checks-1'>
+				<input id='story-ones' name='story-ones' type='checkbox' class='inline-checks' value='story-ones'/> Story ones
+			</label>
+
+			<label for='pump-ups' class='checks-1'>
+				<input id='pump-ups' name='pump-ups' type='checkbox' class='inline-checks' value='pump-ups'/> Pump-ups
+			</label>
+
+			<label for='joke-ones' class='checks-1'>
+				<input id='joke-ones' name='joke-ones' type='checkbox' class='inline-checks' value='joke-ones'/> Joke ones
+			</label>
+
+			<label for='instrumentals' class='checks-1'>
+				<input id='instrumentals' name='instrumentals' type='checkbox' class='inline-checks' value='instrumentals'/> Instrumentals
+			</label>
+
+
+			<label for='comments'> Do you have anything you'd like me to know?
+				<textarea id='comments' name='comments' rows='5' placeholder='Share your thoughts here!'></textarea>
+			</label>
+
+			<input type='submit' value='Submit'/>
+
+		</fieldset>
+
+	</form>
+</body>
+</html>

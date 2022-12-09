@@ -1,0 +1,80 @@
+html, body {
+	margin: 0;
+}
+
+body {
+	margin: 20px;
+	padding: 20px;
+	background-color: #f5f6f7;
+	/*font-family: 'Open Sans', sans-serif;*/
+}
+
+.label {
+	width: 260px;
+	border: 2px solid black;
+	margin: 0 auto;
+	background-color: #fff;
+	padding: 0 10px;
+}
+
+h1 {
+	font-size: 34px;
+	width: 250px;
+	text-align: center;
+	margin: 0 auto;
+	border-bottom: solid 1px #777;
+}
+
+p {
+	margin: 0;
+}
+
+.serving-number {
+	font-size: 1.1rem;
+}
+
+
+
+.inline {
+	display: inline-block;
+}
+
+.left {
+	width: 60%;
+	text-align: left;
+}
+
+.right {
+	/*text-align: right;*/
+}
+
+.serving {
+	font-weight: bold;
+	font-size: 1.1rem;
+}
+
+.fatbar {
+	margin: 2px auto;
+	height: 10px;
+	background-color: black;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+#calories {
+	width: 50%;
+	border-bottom: none;
+}
+
+#ghost {
+	width: 25%;
+	border-bottom: none;
+}
+
+#cal-amount {
+	width: 20%;
+	border-bottom: none;
+}
+

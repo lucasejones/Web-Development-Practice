@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset='UTF-8'/>
+	<title>Registration Form</title>
+	<link rel='stylesheet' href='style.css'/>
+</head>
+<body>
+	<h1>Registration Form</h1>
+	<p>Please fill out this form with the required information:</p>
+	<form method='post' action='https://register-demo.freecodecamp.org'>
+		<fieldset>
+			<label for='first-name' class='top-field'>First Name: 
+				<input required id='first-name' type='text' class='text-inputs'/>
+			</label>
+			<label for='last-name' class='top-field'>Last Name: 
+				<input required id='last-name' type='text' class='text-inputs'/>
+			</label>
+			<label for='email' class='top-field'>Email: 
+				<input required id='email' type='email' class='text-inputs'/>
+			</label>
+			<label for='password' class='top-field'>Password: 
+				<input required id='password' type='password' pattern='[a-z0-5]{8,}' class='text-inputs'/>
+			</label>
+		</fieldset>
+
+		<fieldset>
+			<label for='personal-account'>
+				<input id='personal-account' type='radio' name='account-type' class='inline'/> Personal Account 
+			</label>
+
+			<label for='business-account'>
+				<input id='business-account' type='radio' name='account-type' class='inline'/> 
+				Business Account 
+			</label>
+
+			<label for='terms-and-conditions'>
+				<input required id='terms-and-conditions' name='terms-and-conditions' type='checkbox' class='inline'/> I have read the <a href='https://www.freecodecamp.org/news/terms-of-service/'>Terms and Conditions</a>. 
+			</label>
+			
+		</fieldset>
+
+		<fieldset>
+			<label>
+				Upload a profile picture: 
+				<input type='file'/> 
+			</label>
+
+			<label for='age'>Input your age (years): 
+				<input required id='age' name='age' type='number' min='18' max='120'/>
+			</label>
+
+			<label for='referred'>How did you hear about us?
+				<select id='referred' name='referred'>
+					<option value='' /> select one of the following:</option>
+					<option value='1'> email </option> 
+					<option value='2'> gmail </option>
+					<option value='3'> hmail </option>
+					<option value='4'> tmail </option>
+				</select>
+			</label>	
+
+			<label for='bio'>Provide a bio:
+				<textarea id='bio' name='bio' rows='3' cols='30' placeholder='It all began with a bang...'></textarea>
+			</label>
+
+
+		</fieldset>
+		<input type='submit' value='Submit'/>
+	</form>
+</body>
+</html>
