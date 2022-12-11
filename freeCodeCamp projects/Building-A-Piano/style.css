@@ -8,19 +8,28 @@ html {
   font-family: Verdana, monospace;
 }
 
+body {
+  /*background: linear-gradient(#e6c4ad, #fff); <--white transition option*/
+  /*background: linear-gradient(0deg, #e6c4ad, #e6c4dd); <--80's pink option*/
+  background: linear-gradient(0deg, #e6c4ad, #c2906f);
+  height: 100vh;
+  width: 100vw;
+}
+
 
 #piano {
   position: relative;
   width: 936px;
   height: 337px;
   background: #0c0c15;
-  margin: 80px auto;
+  margin: 150px auto;
   padding: 140px 40px 0;
   border: solid #0c0c15;
   border-width: 2px 8px 60px 8px;
   border-radius: 8px;
   box-shadow: 32px 24px 42px rgba(60, 60, 60, 0.4);
 }
+
 
 #rounded-interior {
   position: absolute;
@@ -32,16 +41,17 @@ html {
   border-radius: 10px;
 }
 
+
 #lcd {
   position: absolute;
   width: 200px;
   height: 100px;
   top: 20px;
   left: 370px;
-  /*margin: 20px auto 0;*/
   background: #2d2d2d;
   box-shadow: 0 0 14px 1px white;
 }
+
 
 #knobs-panel {
   position: absolute;
@@ -49,7 +59,7 @@ html {
   height: 80px;
   top: 30px;
   left: 600px;
-  /*background: #1a1a1a;*/
+  /*background: #1a1a1a; <--dev use only*/
   color: white;
   font-size: 0.7rem;
 }
@@ -82,7 +92,6 @@ html {
   width: 2px;
   margin: 0 auto;
   background: #707070;
-  /*transform: rotate(90deg) translateX(7.5px);*/
 }
 
 #logo {
@@ -101,14 +110,12 @@ html {
 
 #buttons {
   position: absolute;
-  /*background: white;*/
+  /*background: white; <--dev use only*/
   top: 0;
   left: 200px;
   height: 60px;
   width: 100px;
   margin: 15px 0 0 0;
-  /*border-radius: 20%;*/
-  
 }
 
 .button {
@@ -124,18 +131,6 @@ html {
   border-left: solid 1px #3e3e3e;
   border-right: solid 1px #3e3e3e;
 }
-
-/*#glow {
-  position: absolute;
-  background: #b5d7e4; 
-  top: 0;
-  left: 0;
-  height: 50px;
-  width: 130px;
-  margin: 18px 0 0 15px;
-  box-shadow: 0 0 10px 4px #b5d7e4;
-  z-index: 1;
-}*/
 
 
 #wheels {
@@ -160,9 +155,11 @@ html {
   border-radius: 3px;
 }
 
+
 .notches {
   margin-top: 1px;
 }
+
 
 .notch {
   height: 1.5px;
@@ -171,13 +168,13 @@ html {
   margin: 1px auto;
 }
 
+
 .notch-middle {
   height: 2px;
   width: 15px;
   background: #2a2a2a;;
   margin: 3px auto;
 }
-
 
 
 #notch-shadow {
@@ -192,23 +189,22 @@ html {
   border-radius: 2px;
 }
 
+
 .notch-cutout-top{
   height: 2px;
   width: 15px;
   background: #2a2a2a;;
   margin: 3px auto;
-  /*margin-top: 3px;*/
-  /*margin-bottom: 8px;*/
 }
+
 
 .notch-cutout-bottom{
   height: 2px;
   width: 15px;
   background: #2a2a2a;;
   margin: 3px auto;
-  /*margin-bottom: 3px;*/
-  /*margin-top: 8px;*/
 }
+
 
 .keys {
   position: absolute;
@@ -220,6 +216,7 @@ html {
   border-radius: 4px;
 }
 
+
 .key{
   position: relative;
   background: #fff;
@@ -228,7 +225,6 @@ html {
   width: 34px;
   margin: 2px 1.3px;
   border-radius: 0 0 1.5px 1.5px;
-  /*border: solid 1px #4a4a4a;*/
 }
 
 
