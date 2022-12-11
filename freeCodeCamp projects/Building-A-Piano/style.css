@@ -5,6 +5,7 @@
 
 html {
   box-sizing: border-box;
+  font-family: Verdana, monospace;
 }
 
 
@@ -30,6 +31,111 @@ html {
   background: lightblue;
   border-radius: 10px;
 }
+
+#lcd {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  top: 20px;
+  left: 370px;
+  /*margin: 20px auto 0;*/
+  background: #2d2d2d;
+  box-shadow: 0 0 14px 1px white;
+}
+
+#knobs-panel {
+  position: absolute;
+  width: 220px;
+  height: 80px;
+  top: 30px;
+  left: 600px;
+  /*background: #1a1a1a;*/
+  color: white;
+  font-size: 0.7rem;
+}
+
+
+.knob {
+  position: relative;
+  height: 30px;
+  width: 30px;
+  float: left;
+  border-radius: 50%;
+  background: #232323;
+  margin: 0 20px 20px 0px;
+  left: 20px;
+}
+
+
+.knob-top {
+  box-shadow: 0px 2px 0 2px grey;
+}
+
+
+.knob-bottom {
+  box-shadow: 0px 1px 0 2px grey;
+}
+
+
+.knob-value {
+  height: 15px;
+  width: 2px;
+  margin: 0 auto;
+  background: #707070;
+  /*transform: rotate(90deg) translateX(7.5px);*/
+}
+
+#logo {
+  position: absolute;
+  color: #242424;
+  top: 0;
+  left: 0;
+  margin: 20px 0 0 25px;
+  font-size: 2rem;
+  font-family: Impact;
+  letter-spacing: 2px;
+  font-style: italic;
+  text-decoration: underline;
+  z-index: 2;
+}
+
+#buttons {
+  position: absolute;
+  /*background: white;*/
+  top: 0;
+  left: 200px;
+  height: 60px;
+  width: 100px;
+  margin: 15px 0 0 0;
+  /*border-radius: 20%;*/
+  
+}
+
+.button {
+  position: relative;
+  height: 30px;
+  width: 30px;
+  background: #686868;
+  margin:  10px;
+  border-radius: 20%;
+  float: left;
+  box-shadow: 0 0 8px 1px white;
+  border-bottom: solid 4px #3e3e3e;
+  border-left: solid 1px #3e3e3e;
+  border-right: solid 1px #3e3e3e;
+}
+
+/*#glow {
+  position: absolute;
+  background: #b5d7e4; 
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 130px;
+  margin: 18px 0 0 15px;
+  box-shadow: 0 0 10px 4px #b5d7e4;
+  z-index: 1;
+}*/
 
 
 #wheels {
@@ -138,6 +244,24 @@ html {
   background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(34, 34, 34) 40%, rgb(34, 34, 34) 60%, rgb(0, 0, 0) 100%);
   box-shadow: 3px 5px 2px rgba(58, 58, 58, 0.4);
 }
+
+
+/*I don't understand ::after and ::before*/
+/*I'd like to put one semi-transparent image across all black keys*/
+
+
+
+/*.black-key::before{
+  background: blue;
+}*/
+/*.key.black-key::after{
+  background: blue;
+}*/
+
+/*.mask {
+  background: url(maximum_intensity.png);
+  background-size: 50%;
+}*/
 
 
 
