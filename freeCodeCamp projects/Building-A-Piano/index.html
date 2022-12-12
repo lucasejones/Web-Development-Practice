@@ -5,6 +5,16 @@
   <meta name='viewport' content='width=device-width, initial-scale=1.0' />
   <title>Building a Piano</title>
   <link rel='stylesheet' href='style.css'/>
+
+  <script>
+
+    let song = new Audio('Explosion.mp3');
+
+    function playAudio() {
+      song.play()
+    }
+
+  </script>
 </head>
 
 <body>
@@ -97,7 +107,7 @@
 
 
     <div class='keys'>
-      <div class='key'></div>
+      <div class='key' onclick='playAudio()'></div>
       <div class='key black-key mask'></div>
       <div class='key black-key mask'></div>
       <div class='key'></div>
@@ -106,7 +116,7 @@
       <div class='key black-key mask'></div>
 
       <div class='key'></div>
-      <div class='key black-key mask'></div>
+      <div class='key black-key mask' onclick='playAudio()'></div>
       <div class='key black-key mask'></div>
       <div class='key'></div>
       <div class='key black-key mask'></div>
