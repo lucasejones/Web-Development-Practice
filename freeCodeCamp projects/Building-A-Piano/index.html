@@ -5,16 +5,8 @@
   <meta name='viewport' content='width=device-width, initial-scale=1.0' />
   <title>Building a Piano</title>
   <link rel='stylesheet' href='style.css'/>
+  <script src='script.js'></script>
 
-  <script>
-
-    let song = new Audio('Explosion.mp3');
-
-    function playAudio() {
-      song.play()
-    }
-
-  </script>
 </head>
 
 <body>
@@ -24,8 +16,8 @@
     <div id='logo'>LJ Tech</div>
 
     <div id='buttons'>
-      <div class='button'></div>
-      <div class='button'></div>
+      <div id='button-left' class='button' onclick="powerOnOff()"></div>
+      <div id='button-right' class='button'></div>
     </div>
 
     <div id='lcd'></div>

@@ -79,14 +79,24 @@ body {
   position: relative;
   height: 30px;
   width: 30px;
-  background: #686868;
+  background: rgb(104, 104, 104);
   margin:  10px;
   border-radius: 20%;
   float: left;
-  box-shadow: 0 0 8px 1px white;
   border-bottom: solid 4px #3e3e3e;
   border-left: solid 1px #3e3e3e;
   border-right: solid 1px #3e3e3e;
+}
+
+#button-left {
+  /*background: #87de87;*/
+  /*background: radial-gradient(#87de87, #c6f4c6);*/
+  /*box-shadow: 0 0 8px 1px white;*/
+}
+
+#button-right {
+  /*background: radial-gradient(#87de87, #c6f4c6);*/
+  /*box-shadow: 0 0 8px 1px white;*/
 }
 
 
