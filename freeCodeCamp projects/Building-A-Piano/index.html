@@ -5,8 +5,11 @@
   <meta name='viewport' content='width=device-width, initial-scale=1.0' />
   <title>Building a Piano</title>
   <link rel='stylesheet' href='style.css'/>
-  <script src='script.js'></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Raleway:wght@300;400;500;600;800;900&display=swap">
 
+  <script src='script.js'></script>
 </head>
 
 <body>
@@ -16,11 +19,15 @@
     <div id='logo'>LJ Tech</div>
 
     <div id='buttons'>
-      <div id='button-left' class='button' onclick="powerOnOff()"></div>
+      <div id='button-left' class='button' onclick="powerOnOff()">
+        <p>On/Off</p>
+      </div>
       <div id='button-right' class='button'></div>
     </div>
 
-    <div id='lcd'></div>
+    <div id='lcd'>
+      <p id='lcd-text'>Hello!</p>
+    </div>
 
 
     <div id='knobs-panel'>

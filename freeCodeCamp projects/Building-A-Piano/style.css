@@ -5,7 +5,8 @@
 
 html {
   box-sizing: border-box;
-  font-family: Verdana, monospace;
+  /*font-family: Verdana, monospace;*/
+  font-family: 'Raleway', monospace;
 }
 
 body {
@@ -88,15 +89,27 @@ body {
   border-right: solid 1px #3e3e3e;
 }
 
-#button-left {
-  /*background: #87de87;*/
-  /*background: radial-gradient(#87de87, #c6f4c6);*/
-  /*box-shadow: 0 0 8px 1px white;*/
+
+/*#button-left {
+  background: #87de87;
+  background: radial-gradient(#87de87, #c6f4c6);
+  box-shadow: 0 0 8px 1px white;
 }
 
 #button-right {
-  /*background: radial-gradient(#87de87, #c6f4c6);*/
-  /*box-shadow: 0 0 8px 1px white;*/
+  background: radial-gradient(#87de87, #c6f4c6);
+  box-shadow: 0 0 8px 1px white;
+}*/
+
+
+#buttons p {
+  /*background: purple; <--dev use only*/
+  margin-top: 34px;
+  margin-left: -8px;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 0.7rem;
+  color: #242424;
 }
 
 
@@ -111,7 +124,14 @@ body {
   top: 20px;
   left: 360px;
   background: #2d2d2d;
-  box-shadow: 0 0 14px 1px white;
+  /*box-shadow: 0 0 14px 1px white; <-- dev use only*/
+}
+
+#lcd-text {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  color: white;
+  display: none;
 }
 
 
@@ -164,7 +184,7 @@ body {
 
 #wheels {
   position: absolute;
-  background: black;
+  background: #101010;
   width: 70px;
   height: 130px;
   margin-top: 38px;
