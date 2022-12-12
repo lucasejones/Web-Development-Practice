@@ -18,7 +18,7 @@ function powerOnOff() {
 		lcd.style.boxShadow = '0 0 20px 4px white';
 
 		// lcd text visibility
-		lcd_text.style.display = 'block'
+		lcd_text.style.display = 'inline-block'
 
 	} else if (power_on == true) {
 		power_on = false
