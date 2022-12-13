@@ -2,19 +2,19 @@
   box-sizing: inherit;
 }
 
-
 html {
   box-sizing: border-box;
   /*font-family: Verdana, monospace;*/
   font-family: 'Raleway', monospace;
+  height: 100%;
 }
 
 body {
   /*background: linear-gradient(#e6c4ad, #fff); <--white transition option*/
   /*background: linear-gradient(0deg, #e6c4ad, #e6c4dd); <--80's pink option*/
   background: linear-gradient(0deg, #e6c4ad, #c2906f);
-  height: 100vh;
-  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 
@@ -66,6 +66,7 @@ body {
   z-index: 2;
 }
 
+
 #buttons {
   position: absolute;
   /*background: white; <--dev use only*/
@@ -75,6 +76,7 @@ body {
   width: 100px;
   margin: 15px 0 0 0;
 }
+
 
 .button {
   position: relative;
@@ -127,6 +129,7 @@ body {
   /*box-shadow: 0 0 14px 1px white; <-- dev use only*/
 }
 
+
 #lcd-text {
   position: relative;
   font-family: 'Orbitron', sans-serif;
@@ -135,7 +138,7 @@ body {
   letter-spacing: 1.2px;
   color: white;
   margin-top: 30px;
-  left: 72px;
+  left: 71px;
   display: none;
 }
 
@@ -277,7 +280,7 @@ body {
 }
 
 
-.key{
+.white-key{
   position: relative;
   background: #fff;
   float: left;
@@ -288,8 +291,21 @@ body {
   box-shadow: 0 3px grey;
 }
 
+.black-key {
+  position: relative;
+  height: 95px;
+  width: 26px;
+  right: -22.5px;
+  border: solid #000;
+  border-width: 0 5px 10px 2px;
+  border-radius: 0 0 4px 4px;
+  background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(34, 34, 34) 40%, rgb(34, 34, 34) 60%, rgb(0, 0, 0) 100%);
+  box-shadow: 3px 5px 2px rgba(58, 58, 58, 0.4);
+  z-index: 1;
+}
 
-.key.black-key::after {
+
+/*.key.black-key::after { <--dev use only
   position: absolute;
   content: '';
   height: 95px;
@@ -300,8 +316,7 @@ body {
   border-radius: 0 0 4px 4px;
   background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(34, 34, 34) 40%, rgb(34, 34, 34) 60%, rgb(0, 0, 0) 100%);
   box-shadow: 3px 5px 2px rgba(58, 58, 58, 0.4);
-}
-
+}*/
 
 
 
@@ -322,10 +337,12 @@ body {
   max-width: 1000px;
 }
 
+
 #power-cable {
   left: -400px;
   top: -180px;
 }
+
 
 #output-1 {
   left: 350px;
@@ -333,11 +350,13 @@ body {
   transform: rotate(271deg) scaleY(-0.7)
 }
 
+
 #output-2 {
   left: 260px;
   top: -300px;
   transform: rotate(90deg) scaleY(0.7)
 }
+
 
 .topbox{
   width:500px; 
@@ -348,6 +367,7 @@ body {
   float: left;
 
 }
+
 
 #top-right {
   position: relative;
@@ -361,6 +381,7 @@ body {
   filter: drop-shadow(-1px -5px 5px #2f2f2f82);
 }
 
+
 #top-left {
   position: relative;
   border-top: transparent;
@@ -368,7 +389,6 @@ body {
   border-right: transparent;
   filter: drop-shadow(-1px -5px 5px #2f2f2f82);
 }
-
 
 
 
@@ -382,10 +402,12 @@ body {
   z-index: -1;
 }
 
+
 #jack-1 {
   left: 728px;
   top: -192px;
 }
+
 
 #jack-2 {
   left: 777px;

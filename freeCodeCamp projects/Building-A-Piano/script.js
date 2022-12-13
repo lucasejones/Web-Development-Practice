@@ -1,7 +1,7 @@
 
 var power_on = false;
 
-function powerOnOff() {
+function powerOnOff(sound) {
 	var power_button = document.getElementById('button-left');
 	var lcd = document.getElementById('lcd');
 	var lcd_text = document.getElementById('lcd-text');
@@ -28,13 +28,12 @@ function powerOnOff() {
 		power_button.style.boxShadow = 'none';
 
 		// lcd color and glow
-		lcd.style.background = 'rgb(45, 45, 45)'
-		lcd.style.boxShadow = 'none'
+		lcd.style.background = 'rgb(45, 45, 45)';
+		lcd.style.boxShadow = 'none';
 
 		// lcd text visibility
-		lcd_text.style.display = 'none'
+		lcd_text.style.display = 'none';
 	}
-
 }
 
 
@@ -86,7 +85,16 @@ function powerOnOff() {
 
 function playAudio() {
 	let song = new Audio('Explosion.mp3');
-  	song.play()
+ 	// song.play()
+
+	if (power_on == true) {
+		song.play()
+	} else {
+		song.pause()
+	}
+
+	// return song.pause()
+ 
 }
 
 
