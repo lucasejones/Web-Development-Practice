@@ -16,9 +16,9 @@
 		<h1>TypeScript Basics</h1>
 		<div class='divider'></div>
 		<nav>
-			<a href='#The-Basics'><p>Part 1</p></a>
+			<a href='#The-Basics'><p>The Basics</p></a>
 			<div class='divider'></div>
-			<a href='#place2'><p>Part 2</p></a>
+			<a href='#Static-Type-checking'><p>Static Type-checking</p></a>
 			<div class='divider'></div>
 			<a href='#place3'><p>Part 3</p></a>
 			<div class='divider'></div>
@@ -58,27 +58,8 @@
 				<h1>The Basics</h1>
 				<div class='sub-content'>
 					<p>Welcome to the first page of the handbook. If this is your first experience with TypeScript - you may want to start at one of the <a href='https://www.typescriptlang.org/docs/handbook/intro.html#get-started' target='_blank'>'Getting Started'</a> guides.</p>
-					<p>"Each and every value in JavaScript has a set of behaviors you can observe from running different operations. That sounds abstract, but as a quick example, consider some operations we might run on a variable named message.</p>
+					<p>Each and every value in JavaScript has a set of behaviors you can observe from running different operations. That sounds abstract, but as a quick example, consider some operations we might run on a variable named <code class='language-none'>message</code>.</p>
 
-
-					<!-- the following are two alternate ways to present code, using <pre>-->
-						<!-- way #1 -->
-					<!-- <pre class='large-code-container'><code><div class='line'>// Accessing the property 'toLowerCase'</div><div class='line'>// on 'message' and then calling it</div><div class='line'>message.toLowerCase();</div><div class='line'>// Calling 'message'</div><div class='line'>message();</div></code></pre> -->
-
-					<!-- way #2 -->
-					<!-- <pre class='large-code-container'><code>// Accessing the property 'toLowerCase'
-// on 'message' and then calling it
-message.toLowerCase();
-// Calling 'message'
-message();</code></pre> -->
-					
-					<!-- <div class='code-tainer'>
-						<p class='comment'>// Accessing the property 'toLowerCase'</p>
-						<p class='comment'>// on 'message' and then calling it</p>
-						<p>message.toLowerCase();</p>
-						<p class='comment'>// Calling 'message'</p>
-						<p>message();</p>
-					</div> -->
 
 					<div class='prism-div'>
 						<pre><code class='language-javascript'>// Accessing the property 'toLowerCase'
@@ -89,17 +70,59 @@ message.toLowerCase();
 message();</code></pre>
 					</div>
 
-					<p>If we break this down, the first runnable line of code accesses a property called <code class='language-javascript'>toLowerCase</code> and then calls it. The second one tries to call message directly.</p>
+					<p>If we break this down, the first runnable line of code accesses a property called <code class='language-javascript'>toLowerCase</code> and then calls it. The second one tries to call <code class='language-javascript'>message</code> directly.</p>
 
-					<p>Let’s say <code class='language-javascript'>message</code> was defined in the following way.<p>
+
+					<p>But assuming we don’t know the value of <code class='language-none'>message</code> - and that’s pretty common - we can’t reliably say what results we’ll get from trying to run any of this code. The behavior of each operation depends entirely on what value we had in the first place.</p>
+
+					<ul>
+						<li>Is <code class='language-none'>message</code> callable?
+						<li>Does it have a property called <code class='language-none'>toLowerCase</code> on it?
+						<li>If it does, is <code class='language-none'>toLowerCase</code> even callable?
+						<li>If both of these values are callable, what do they return?</li>
+					</ul>
+
+					<p>The answers to these questions are usually things we keep in our heads when we write JavaScript, and we have to hope we got all the details right.
+					</p>
+
+
+
+
+					<p>Let’s say <code class='language-javascript'>message</code> was defined in the following way:<p>
+
+					<pre class='tall'><code class='language-javascript'>const message = "Hello World!";</code></pre>
+					
+					<p>As you can probably guess, if we try to run <code class='language-none'>message.toLowerCase()</code>, we’ll get the same string, only in lower-case.</p>
+
+					<p>What about that second line of code? If you’re familiar with JavaScript, you’ll know this fails with an exception:</p>
+
+					<pre class='tall'><code class='language-none'>TypeError: message is not function</code></pre>
+
+					<p>It’d be great if we could avoid mistakes like this.</p>
+
+					<p>When we run our code, the way that our JavaScript runtime chooses what to do is by figuring out the type of the value - what sorts of behaviors and capabilities it has. That’s part of what that <code class='language-none'>TypeError</code> is alluding to - it’s saying that the string <code class='language-none'>"Hello World!"</code> cannot be called as a function.</p>
+
+					<p>For some values, such as the primitives <code class='language-none'>string</code> and <code class='language-none'>number</code>, we can identify their type at runtime using the <code class='language-none'>typeof</code> operator. But for other things like functions, there’s no corresponding runtime mechanism to identify their types. For example, consider this function:</p>
 
 					<div class='prism-div'>
-						<pre><code class='language-javascript'>const message = "Hello World!";</code></pre>
+						<pre><code class='language-javascript'>function fn(x) {
+  return x.flip();
+}</code></pre>
 					</div>
-					<p>As you can probably guess, if we try to run <code class='language-javascript'>message.toLowerCase()</code>, we’ll get the same string only in lower-case.</p>
 
+					<p>We can observe by reading the code that this function will only work if given an object with a callable <code class='language-none'>flip</code> property, but JavaScript doesn’t surface this information in a way that we can check while the code is running. The only way in pure JavaScript to tell what <code class='language-none'>fn</code> does with a particular value is to call it and see what happens. This kind of behavior makes it hard to predict what code will do before it runs, which means it’s harder to know what your code is going to do while you’re writing it.</p>
 
+					<p>Seen in this way, a <em>type</em> is the concept of describing which values can be passed to <code class='language-none'>fn</code> and which will crash. JavaScript only truly provides <em>dynamic</em> typing - running the code to see what happens.</p>
+					
+					<p>The alternative is to use a <em>static</em> type system to make predictions about what code is expected <em>before</em> it runs.</p>
 
+				</div>
+			</section>
+
+			<section id='Static-Type-checking'>
+				<h1>Static Type-checking</h1>
+				<div class='sub-content'>
+					<p>Think back to that <code class='language-none'>TypeError</code> we got earlier from trying to call a <code class='language-none'>string</code> as a function. <em>Most people</em> don’t like to get any sorts of errors when running their code - those are considered bugs! And when we write new code, we try our best to avoid introducing new bugs.</p>
 				</div>
 			</section>
 		</div>
