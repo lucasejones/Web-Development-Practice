@@ -1,0 +1,49 @@
+body {
+	min-height: 100vh;
+	margin: 0;
+	font-family: 'Open-sans', sans-serif;
+	background: #f5f6f7;
+	
+}
+
+
+header {
+	position: fixed;
+	height: 100vh;
+	width: 320px;
+	max-width: 320px;
+	/*background: lightblue;*/
+	border-right: 1px solid #888;
+}
+
+
+h1 {
+	text-align: center;
+	font-weight: 500;
+	font-size: 1.8rem;
+	margin: 0;
+	padding: 0.67em 0;
+}
+
+
+.divider {
+	width: 100%;
+	height: 2px;
+	border-bottom: 1px solid #444;
+}
+
+nav .divider:last-of-type {
+	border-bottom: none;
+}
+
+
+nav p {
+	margin: 11px 0 11px 28px;
+}
+
+
+nav a {
+	color: #444;
+	text-decoration: none;
+}
+
