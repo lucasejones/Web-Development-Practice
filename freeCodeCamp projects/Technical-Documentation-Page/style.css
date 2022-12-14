@@ -1,8 +1,12 @@
+:root {
+	--total-header-width: 321px;
+}
+
 body {
 	min-height: 100vh;
 	margin: 0;
 	font-family: 'Open-sans', sans-serif;
-	background: #f5f6f7;
+	background: #fafafa;
 	
 }
 
@@ -17,7 +21,7 @@ header {
 }
 
 
-h1 {
+header h1 {
 	text-align: center;
 	font-weight: 500;
 	font-size: 1.8rem;
@@ -47,3 +51,37 @@ nav a {
 	text-decoration: none;
 }
 
+
+main {
+	position: absolute;
+	width: calc(100% - var(--total-header-width));
+	height: 100vh;
+	/*background: lightyellow;*/
+	left: var(--total-header-width);
+	line-height: 150%;
+}
+
+.main-content {
+	margin: 50px 24px 0px 30px;
+	/*background: grey;*/
+}
+
+
+section h1 {
+	font-weight: 500;
+	font-size: 1.8rem;
+}
+
+section p a {
+	color: #000;
+}
+
+.sub-content {
+	/*background: lightgreen;*/
+	margin: 30px 30px 0 30px;
+	color: #444;
+}
+
+.sub-content > p > a {
+	color: #444;
+}
