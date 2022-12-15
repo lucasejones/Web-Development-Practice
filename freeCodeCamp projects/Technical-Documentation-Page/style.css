@@ -63,7 +63,7 @@ main {
 }
 
 .main-content {
-	margin: 50px 24px 40px 30px;
+	margin: 30px 24px 40px 30px;
 	/*background: grey;*/
 }
 
@@ -71,6 +71,7 @@ main {
 section h1 {
 	font-weight: 500;
 	font-size: 1.8rem;
+	text-decoration: underline;
 }
 
 section:not(:first-of-type) {
@@ -96,6 +97,7 @@ section p a {
 
 
 .prism-div {
+	width: 85%;
 	margin: 0 auto;
 	padding: 10px;
 	border: 3px solid #f1f1f1;
@@ -113,6 +115,19 @@ li::marker{
 .tall {
 	margin: 1.5em 0 !important;
 }
+
+.highlight {
+	background: #ffe4e4;
+}
+
+.code-p {
+	margin-bottom: 0;
+}
+
+
+/*code {
+	background: lightgreen;
+}*/
 
 
 
