@@ -22,9 +22,9 @@
 			<div class='divider'></div>
 			<a href='#Non-exception-Failures'><p>Non-exception Failures</p></a>
 			<div class='divider'></div>
-			<a href='#place4'><p>Part 4</p></a>
+			<a href='#Types-for-Tooling'><p>Types for Tooling</p></a>
 			<div class='divider'></div>
-			<a href='#place5'><p>Part 5</p></a>
+			<a href='#tsc-the-TypeScript-Compiler'><p>tsc, the TypeScript Compiler</p></a>
 			<div class='divider'></div>
 
 			<a href='#place1'><p>Part 1</p></a>
@@ -149,6 +149,128 @@ Type 'String' has no call signatures.</p></pre>
 					</p>
 
 					<p>For example, the specification says that trying to call something that isn’t callable should throw an error. Maybe that sounds like “obvious behavior”, but you could imagine that accessing a property that doesn’t exist on an object should throw an error too. Instead, JavaScript gives us different behavior and returns the value <code class='language-none'>undefined</code>:</p>
+
+					<div class='prism-div'>
+						<pre><code class='language-javascript'>const user = {
+  name: "Daniel",
+  age: 26,
+};
+user.location; // returns undefined</code></pre>
+					</div>
+
+					<p>Ultimately, a static type system has to make the call over what code should be flagged as an error in its system, even if it’s “valid” JavaScript that won’t immediately throw an error. In TypeScript, the following code produces an error about <code class='language-none'>location</code> not being defined:</p>
+
+					<div class='prism-div'>
+						<pre data-line='6'><code class='language-javascript'>const user = {
+  name: "Daniel",
+  age: 26,
+};
+ 
+user.location;</code>
+<span class='highlight code-p'>Property 'location' does not exist on type '{ name: string; age: number; }'.</span></pre>
+					</div>
+					<p>While sometimes that implies a trade-off in what you can express, the intent is to catch legitimate bugs in our programs. And TypeScript catches <em>a lot</em> of legitimate bugs.</p>
+
+					<p>For example: typos,</p>
+
+					<div class='prism-div'>
+						<pre><code class='language-javascript'>const announcement = "Hello World!";
+ 
+// How quickly can you spot the typos?
+announcement.toLocaleLowercase();
+announcement.toLocalLowerCase();
+ 
+// We probably meant to write this...
+announcement.toLocaleLowerCase();</code></pre>
+					</div>
+
+					<p>uncalled functions,</p>
+
+					<div class='prism-div'>
+						<pre><code class='language-javascript'>function flipCoin() {
+  // Meant to be Math.random()
+  return Math.random < 0.5;</code>
+<span class='highlight code-p'>Operator '<' cannot be applied to types '() => number' and 'number'.</span><code>
+}</code></pre>
+					</div>
+
+					<p>or basic logic errors.</p>
+
+					<div class='prism-div'>
+						<pre><code class='language-javascript'>const value = Math.random() < 0.5 ? "a" : "b";
+if (value !== "a") {
+  // ...
+} else if (value === "b") {
+</code>
+<span class='highlight code-p'>This condition will always return 'false' since the types '"a"' and '"b"' have no overlap.</span><code class='language-javascript'>
+// Oops, unreachable
+}</code></pre>
+					</div>
+				</div>
+			</section>
+
+			<section id='Types-for-Tooling'>
+				<h1>Types for Tooling</h1>
+				<div class='sub-content'>
+					<p>TypeScript can catch bugs when we make mistakes in our code. That’s great, but TypeScript can <em>also</em> prevent us from making those mistakes in the first place.</p>
+
+					<p>The type-checker has information to check things like whether we’re accessing the right properties on variables and other properties. Once it has that information, it can also start <em>suggesting</em> which properties you might want to use.</p>
+
+					<p>That means TypeScript can be leveraged for editing code too, and the core type-checker can provide error messages and code completion as you type in the editor. That’s part of what people often refer to when they talk about tooling in TypeScript.</p>
+
+					<p>TypeScript takes tooling seriously, and that goes beyond completions and errors as you type. An editor that supports TypeScript can deliver “quick fixes” to automatically fix errors, refactorings to easily re-organize code, and useful navigation features for jumping to definitions of a variable, or finding all references to a given variable. All of this is built on top of the type-checker and is fully cross-platform, so it’s likely that <a href='https://github.com/Microsoft/TypeScript/wiki/TypeScript-Editor-Support' target='_blank'>your favorite editor has TypeScript support available</a>.</p>
+				</div>
+			</section>
+
+			<section id='tsc-the-TypeScript-Compiler'>
+				<h1><code class='language-none'>tsc</code>, the TypeScript Compiler</h1>
+				<div class='sub-content'>
+					<p>We’ve been talking about type-checking, but we haven’t yet used our type-<em>checker</em>. Let’s get acquainted with our new friend <code class='language-none'>tsc</code>, the TypeScript compiler. First we’ll need to grab it via npm.</p>
+
+					<pre class='tall'><code class='language-javascript'>npm install -g typescript</code></pre>
+
+					<p>This installs the TypeScript Compiler <code class='language-none'>tsc</code> globally. You can use <code class='language-none'>npx</code> or similar tools if you’d prefer to run tsc from a local <code class='language-none'>node_modules</code> package instead.</p>
+
+					<p>Now let’s move to an empty folder and try writing our first TypeScript program: <code class='language-none'>hello.ts</code>:</p>
+
+					<div class='prism-div'>
+						<pre><code class='language-javascript'>// Greets the world.
+console.log("Hello world!");</code></pre>
+					</div>
+
+					<p>Notice there are no frills here; this “hello world” program looks identical to what you’d write for a “hello world” program in JavaScript. And now let’s type-check it by running the command <code class='language-none'>tsc</code> which was installed for us by the <code class='language-none'>typescript</code> package.</p>
+					
+					<pre class='tall'><code class='language-javascript'>tsc hello.ts</code></pre>
+
+					<p>Tada!</p>
+
+					<p>Wait, “tada” what exactly? We ran <code class='language-none'>tsc</code> and nothing happened! Well, there were no type errors, so we didn’t get any output in our console since there was nothing to report.</p>
+
+					<p>But check again - we got some <em>file</em> output instead. If we look in our current directory, we’ll see a <code class='language-none'>hello.js</code> file next to <code class='language-none'>hello.ts</code>. That’s the output from our <code class='language-none'>hello.ts</code> file after <code class='language-none'>tsc</code> <em>compiles</em> or <em>transforms</em> it into a plain JavaScript file. And if we check the contents, we’ll see what TypeScript spits out after it processes a <code class='language-none'>.ts</code> file:</p>
+
+					<div class='prism-div'>
+						<pre><code class='language-javascript'>// Greets the world.
+console.log("Hello world!");</code></pre>
+					</div>
+
+					<p>In this case, there was very little for TypeScript to transform, so it looks identical to what we wrote. The compiler tries to emit clean readable code that looks like something a person would write. While that’s not always so easy, TypeScript indents consistently, is mindful of when our code spans across different lines of code, and tries to keep comments around.</p>
+
+					<p>What about if we <em>did</em> introduce a type-checking error? Let’s rewrite <code class='language-none'>hello.ts</code>:</p>
+
+					<div class='prism-div'>
+						<pre><code class='language-javascript'>// This is an industrial-grade general-purpose greeter function:
+function greet(person, date) {
+  console.log(`Hello ${person}, today is ${date}!`);
+}
+ 
+greet("Brendan");</code></pre>
+					</div>
+
+					<p>If we run <code class='language-none'>tsc hello.ts</code> again, notice that we get an error on the command line!</p>
+
+					<pre class='tall'><code class='language-none'>Expected 2 arguments, but got 1.</code></pre>
+					
+					<p>TypeScript is telling us we forgot to pass an argument to the <code class='language-none'>greet</code> function, and rightfully so. So far we’ve only written standard JavaScript, and yet type-checking was still able to find problems with our code. Thanks, TypeScript!</p>
 				</div>
 			</section>
 
