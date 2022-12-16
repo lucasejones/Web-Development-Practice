@@ -13,6 +13,12 @@ body {
 	background: #fafafa;
 }
 
+
+
+/*----------------------------*/
+/*           HEADER           */
+/*----------------------------*/
+
 header {
 	position: fixed;
 	height: 100vh;
@@ -22,7 +28,6 @@ header {
 	border-right: 1px solid #888;
 }
 
-
 header h1 {
 	text-align: center;
 	font-weight: 500;
@@ -30,7 +35,6 @@ header h1 {
 	margin: 0;
 	padding: 0.67em 0;
 }
-
 
 .divider {
 	width: 100%;
@@ -54,19 +58,23 @@ nav a {
 }
 
 
+
+/*----------------------------*/
+/*            MAIN            */
+/*----------------------------*/
+
 main {
 	position: absolute;
 	width: calc(100% - var(--total-header-width));
 	/*background: lightyellow;*/
-	left: var(--total-header-width);
+	margin-left: var(--total-header-width);
 	line-height: 1.5;
 }
 
 .main-content {
-	margin: 30px 24px 40px 30px;
+	margin: 30px 24px 160px 30px;
 	/*background: grey;*/
 }
-
 
 section h1 {
 	font-weight: 500;
@@ -83,18 +91,15 @@ section p a {
 	color: #000;
 }
 
-
 .sub-content {
 	/*background: lightgreen;*/
 	margin: 30px 30px 0 30px;
 	color: #444;
 }
 
-
 .sub-content > p > a {
 	color: #444;
 }
-
 
 .prism-div {
 	width: 85%;
@@ -125,9 +130,42 @@ li::marker{
 }
 
 
-/*code {
-	background: lightgreen;
-}*/
+
+/*----------------------------*/
+/*        MEDIA-QUERY         */
+/*----------------------------*/
+
+@media (max-width: 800px) {
+	body {
+		height: 100%;
+	}
+
+	header {
+		position: absolute;
+		height: 250px;
+		width: 100%;
+		max-width: 100%;
+		top: 0;
+		/*background: lightblue;*/
+		border-bottom: 2px solid black;
+		overflow: auto;
+		z-index: 1;
+	}
+
+	#main-title {
+		border-bottom: 2px solid black;
+	}
+
+	main {
+		position: relative;
+		width: 100%;
+		margin-top: 250px;
+		margin-left: 0px;
+		padding-top: 30px;
+		/*background: lightyellow;*/
+		line-height: 1.5;
+		}
+}
 
 
 
