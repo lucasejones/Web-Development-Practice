@@ -8,33 +8,38 @@
 	<link rel='stylesheet' href='style.css' />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap" >
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Open+Sans:wght@300;400;500&display=swap" >
 	<link rel='stylesheet' href='prism.css' />
 </head>
 <body>
 	<header>
 		<h1>TypeScript Basics</h1>
-		<div id='main-title' sclass='divider'></div>
+		<div id='main-title' class='divider'></div>
 		<nav>
-			<a href='#The-Basics'><p>The Basics</p></a>
+			<a href='#The-Basics' class='nav-links'><p>The Basics</p></a>
 			<div class='divider'></div>
-			<a href='#Static-Type-checking'><p>Static Type-checking</p></a>
+			<a href='#Static-Type-checking' class='nav-links'><p>Static Type-checking</p></a>
 			<div class='divider'></div>
-			<a href='#Non-exception-Failures'><p>Non-exception Failures</p></a>
+			<a href='#Non-exception-Failures' class='nav-links'><p>Non-exception Failures</p></a>
 			<div class='divider'></div>
-			<a href='#Types-for-Tooling'><p>Types for Tooling</p></a>
+			<a href='#Types-for-Tooling' class='nav-links'><p>Types for Tooling</p></a>
 			<div class='divider'></div>
-			<a href='#tsc-the-TypeScript-Compiler'><p>tsc, the TypeScript Compiler</p></a>
+			<a href='#tsc-the-TypeScript-Compiler' class='nav-links'><p>tsc, the TypeScript Compiler</p></a>
 			<div class='divider'></div>
-			<a href='#Emitting-with-Errors'><p>Emitting with Errors</p></a>
+			<a href='#Emitting-with-Errors' class='nav-links'><p>Emitting with Errors</p></a>
 			<div class='divider'></div>
-			<a href='#Reference'><p>Reference</p></a>
+			<a href='#Reference' class='nav-links'><p>Reference</p></a>
 			<div class='divider'></div>
-
 		</nav>
 	</header>
 
 	<main>
+		<div class='mode-box'>
+			<p id='mode-text'>Dark Mode</p>
+			<div class='toggle-container'>
+				<div id='toggle-circle' onclick='Toggle()'></div>	
+			</div>
+		</div>
 		<div class='main-content'>
 			<section id='The-Basics'>
 				<h1>The Basics</h1>
@@ -52,7 +57,7 @@ message.toLowerCase();
 message();</code></pre>
 					</div>
 
-					<p>If we break this down, the first runnable line of code accesses a property called <code class='language-javascript'>toLowerCase</code> and then calls it. The second one tries to call <code class='language-javascript'>message</code> directly.</p>
+					<p>If we break this down, the first runnable line of code accesses a property called <code class='language-none'>toLowerCase</code> and then calls it. The second one tries to call <code class='language-none'>message</code> directly.</p>
 
 
 					<p>But assuming we don’t know the value of <code class='language-none'>message</code> - and that’s pretty common - we can’t reliably say what results we’ll get from trying to run any of this code. The behavior of each operation depends entirely on what value we had in the first place.</p>
@@ -67,7 +72,7 @@ message();</code></pre>
 					<p>The answers to these questions are usually things we keep in our heads when we write JavaScript, and we have to hope we got all the details right.
 					</p>
 
-					<p>Let’s say <code class='language-javascript'>message</code> was defined in the following way:<p>
+					<p>Let’s say <code class='language-none'>message</code> was defined in the following way:<p>
 
 					<pre class='tall'><code class='language-javascript'>const message = "Hello World!";</code></pre>
 					
@@ -276,6 +281,7 @@ greet("Brendan");</code></pre>
 		</div>
 	</main>
 <script src='prism_lines.js'></script>
+<script src='dark_mode.js'></script>
 </body>
 </html>
 
