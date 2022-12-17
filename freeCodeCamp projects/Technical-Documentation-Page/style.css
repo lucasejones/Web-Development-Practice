@@ -80,7 +80,7 @@ main {
 	background: #cecece;
 	border-radius: 20px;
 	border: 2px solid #a5a5a5;
-	box-shadow: 4px 2px 9px #1d1d1d;
+	box-shadow: 2px 1px 2px #1d1d1d;
 }
 
 #light-mode-text {
@@ -212,6 +212,15 @@ li::marker{
 		border-bottom: 2px solid black;
 	}
 
+
+	nav a {
+		text-align: center;
+	}
+
+	nav p {
+		margin-left: 0;
+	}
+
 	main {
 		position: relative;
 		width: 100%;
@@ -220,7 +229,7 @@ li::marker{
 		padding-top: 30px;
 		/*background: lightyellow;*/
 		line-height: 1.5;
-		}
+	}
 }
 
 
