@@ -35,7 +35,8 @@
 
 	<main>
 		<div class='mode-box'>
-			<p id='mode-text'>Dark Mode</p>
+			<span id='light-mode-text'>Light</span>
+			<span id='dark-mode-text'>Dark</span>
 			<div class='toggle-container'>
 				<div id='toggle-circle' onclick='Toggle()'></div>	
 			</div>
@@ -80,7 +81,7 @@ message();</code></pre>
 
 					<p>What about that second line of code? If you’re familiar with JavaScript, you’ll know this fails with an exception:</p>
 
-					<pre class='tall'><code class='language-none'>TypeError: message is not function</code></pre>
+					<pre class='tall'><code class='language-javascript'>TypeError: message is not function</code></pre>
 
 					<p>It’d be great if we could avoid mistakes like this.</p>
 
@@ -252,7 +253,7 @@ greet("Brendan");</code></pre>
 
 					<p>If we run <code class='language-none'>tsc hello.ts</code> again, notice that we get an error on the command line!</p>
 
-					<pre class='tall'><code class='language-none'>Expected 2 arguments, but got 1.</code></pre>
+					<pre class='tall'><code class='language-javascript'>Expected 2 arguments, but got 1.</code></pre>
 					
 					<p>TypeScript is telling us we forgot to pass an argument to the <code class='language-none'>greet</code> function, and rightfully so. So far we’ve only written standard JavaScript, and yet type-checking was still able to find problems with our code. Thanks, TypeScript!</p>
 				</div>
@@ -267,7 +268,7 @@ greet("Brendan");</code></pre>
 
 					<p>So TypeScript doesn’t get in your way. Of course, over time, you may want to be a bit more defensive against mistakes, and make TypeScript act a bit more strictly. In that case, you can use the <a href='https://www.typescriptlang.org/tsconfig#noEmitOnError' target='blank'>noEmitOnError</a> compiler option. Try changing your <code class='language-none'>hello.ts</code> file and running <code class='language-none'>tsc</code> with that flag:</p>
 
-					<pre class='tall'><code class='language-none'>tsc --noEmitOnError hello.ts</code></pre>
+					<pre class='tall'><code class='language-javascript'>tsc --noEmitOnError hello.ts</code></pre>
 					
 					<p>You’ll notice that <code class='language-none'>hello.js</code> never gets updated.</p>
 				</div>

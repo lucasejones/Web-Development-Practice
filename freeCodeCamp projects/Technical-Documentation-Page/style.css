@@ -83,11 +83,26 @@ main {
 	box-shadow: 4px 2px 9px #1d1d1d;
 }
 
-#mode-text {
+#light-mode-text {
+	display: inline-block;
 	font-family: Montserrat;
 	font-weight: bold;
-	text-align: center;
-	margin: 0 0 6px 0;
+/*	text-align: center;*/
+	font-size: 0.8rem;
+	margin: 0 0 6px 8px;
+	text-shadow: 0 0 14px white, 0 0 20px #fff863;
+}
+
+#dark-mode-text {
+	display: inline-block;
+	font-family: Montserrat;
+	font-weight: bold;
+	/*top: 0;*/
+	/*float: right;*/
+	/*text-align: center;*/
+	font-size: 0.8rem;
+	margin: 0 0 6px 15px;
+	text-shadow: /*0 0 14px black, */0 0 20px black;
 }
 
 .toggle-container {
