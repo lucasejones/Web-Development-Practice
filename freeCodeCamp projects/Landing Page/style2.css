@@ -6,22 +6,27 @@ body {
 	/*background-color: var(--bg-grey);*/
 	
 	/*background: linear-gradient(180deg, lightyellow, brown);*/
-	background: linear-gradient(180deg, lightyellow, #e19747);
+	/*background: linear-gradient(180deg, lightyellow, #e19747);*/
+	background: linear-gradient(180deg, #fdf6d6, #e19747);
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: 100vh;
+	/*height: 100vh;*/
 	font-family: Montserrat, sans-serif;
 	margin: 0;
+	line-height: 1.5;
 	/*background: #d8cfa1;*/
+	
 }
 
 #header {
 	position: fixed;
 	top: 0;
+	background: #fdf6d6; 
+	/*background: #efe3b0;*/
 	/*padding: 1em; <--NEVER SET PADDING 0N A FIXED-POSITION ELEMENT, THIS WILL OVERFLOW.*/
 	/*padding-left: 2em;*/
 	width: 100%;
-	border-bottom: 5px double black;
+	border-bottom: 6px double black;
 }
 
 #header-content {
@@ -117,14 +122,6 @@ h2 {
 	line-height: 1em;
 }
 
-h4 {
-	margin: 0;
-	margin-left: 2.2rem;
-	font-family: 'Tulpen One', serif;
-	font-size: 2rem;
-	letter-spacing: 0.12rem;
-	font-style: italic;
-}
 
 /*---------------------*/
 /*-----Nav Elements----*/
@@ -162,13 +159,23 @@ li{
 	font-weight: bold;
 }
 
+main {
+	margin: 11rem 3rem 3rem;
+}
+
+#main-container {
+	margin: 0 auto;
+	max-width: 1000px;
+}
+
 
 /*---------------------*/
 /*-----Hero Section----*/
 /*---------------------*/
 
 .hero {
-	margin: 7rem 8rem 8rem;
+	/*margin: 13rem 8rem 8rem;*/
+	margin: 0 8rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -224,6 +231,87 @@ form {
 	letter-spacing: 0.6px;
 
 }
+
+
+
+/*---------------------*/
+/*------Main Area------*/
+/*---------------------*/
+
+#slogan {
+	margin-bottom: 1em;
+}
+
+h4 {
+	margin: 0;
+	margin-top: 2rem;
+	font-family: 'Tulpen One', serif;
+	font-size: 2rem;
+	letter-spacing: 0.12rem;
+	font-style: italic;
+}
+
+
+
+
+
+
+.features {
+	margin-top: 4rem;
+	text-align: center;
+	/*background: lightgreen;*/
+}
+
+.feature-set {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	/*background: lightblue;*/
+}
+
+
+.feature {
+	/*border: 2px solid black;*/
+	margin: 1rem;
+	text-align: center;
+	max-width: 300px;
+	min-height: 225px;
+	background: #f4f4f4;
+	background: linear-gradient(#f4f4f4, #dbdbdb);
+	background: linear-gradient(#f4f4f4, #edeba8);
+	background: linear-gradient(162deg, #f4f4f4 40%, #7f87ec4a);
+
+	border-radius: 30px;
+	box-shadow: 0 0 0 2px #999;
+
+}
+
+.feature-icon {
+	margin-top: 2rem;
+	font-size: 3rem;
+	color: #ae35ae;
+	color: #3e75e8;
+}
+
+.feature p {
+	padding: 0 1rem;
+}
+
+.feature p:last-of-type {
+	margin-top: 1.5em;
+	padding-bottom: 1em;
+}
+
+.feat-short-desc {
+	font-weight: 500;
+}
+
+.feat-long-desc {
+	font-weight: 400;
+}
+
+
 
 
 
