@@ -4,16 +4,15 @@
 
 body {
 	/*background-color: var(--bg-grey);*/
-	
 	/*background: linear-gradient(180deg, lightyellow, brown);*/
 	/*background: linear-gradient(180deg, lightyellow, #e19747);*/
 	background: linear-gradient(180deg, #fdf6d6, #e19747);
 	background-size: cover;
 	background-repeat: no-repeat;
-	/*height: 100vh;*/
 	font-family: Montserrat, sans-serif;
 	margin: 0;
 	line-height: 1.5;
+	font-size: 18px;
 	/*background: #d8cfa1;*/
 	
 }
@@ -150,6 +149,7 @@ a:hover {
 
 li{
 	list-style: none;
+	font-size: 16px;
 }
 
 
@@ -169,6 +169,13 @@ main {
 }
 
 
+section {
+	margin-top: 4rem;
+	text-align: center;
+	/*background: lightgreen;*/
+}
+
+
 /*---------------------*/
 /*-----Hero Section----*/
 /*---------------------*/
@@ -179,8 +186,9 @@ main {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center; 
+	align-items: center;
 	padding: 0.8rem 0 2rem;
+	min-width: 207px;
 	text-align: center;
 	/*background: lightyellow;*/
 	background: radial-gradient(
@@ -192,8 +200,13 @@ main {
 
 
 #tagline {
-	margin: 1.5rem 0;
+	margin: 1.5rem 0 1rem;
 	text-align: center;
+	font-size: 2.5rem;
+}
+
+#tagline-two {
+	margin: 0 0 1.5rem;
 	font-size: 1.4rem;
 }
 
@@ -216,7 +229,7 @@ form {
 }
 
 #submit-button {
-	padding: 0.7rem 2rem;
+	padding: 0.7rem 1rem;
 	margin: 1.5rem 0 1rem;
 	font-size: 1em;
 	text-transform: uppercase;
@@ -229,7 +242,6 @@ form {
 	text-shadow: 0 0 0.4em white, 0px 0px 0.5em white;
 	box-shadow: 0px 3px 3px #6d6d6d;
 	letter-spacing: 0.6px;
-
 }
 
 
@@ -239,29 +251,25 @@ form {
 /*---------------------*/
 
 #slogan {
-	margin-top: 3em;
-	margin-bottom: 1em;
-}
-
-h4 {
-	margin: 0;
-	margin-top: 2rem;
+	margin: 5rem 0 1em;
 	font-family: 'Tulpen One', serif;
-	font-size: 2rem;
+	font-size: 2.5rem;
 	letter-spacing: 0.12rem;
-	font-style: italic;
 }
 
-
-
-
-
-
-.features {
-	margin-top: 4rem;
-	text-align: center;
-	/*background: lightgreen;*/
+.section-title {
+	display: inline-block;
+	margin: 0;
+	margin-bottom: 0.75rem;
+	padding: 0 0.5rem;
+	font-family: 'Tulpen One', serif;
+	font-size: 2.5rem;
+	letter-spacing: 0.12rem;
+	text-transform: uppercase;
+	border-bottom: 0.2rem solid black;
+	line-height: 1em;
 }
+
 
 .feature-set {
 	display: flex;
@@ -281,6 +289,10 @@ h4 {
 	background: linear-gradient(#f4f4f4, #dbdbdb);
 	background: linear-gradient(#f4f4f4, #edeba8);
 	background: linear-gradient(162deg, #f4f4f4 40%, #7f87ec4a);
+/*	background: linear-gradient(162deg, #f4f4f4 40%, #e6e6e6);
+	background: #fdf5ea;
+	background: linear-gradient(162deg, #fdf5ea 40%, #7f87ec4a);
+	background: linear-gradient(162deg, #fdf5ea 40%, #6ad6fc);*/
 
 	border-radius: 30px;
 	/*border: solid 2px #999;*/
@@ -292,8 +304,26 @@ h4 {
 .feature-icon {
 	margin-top: 2rem;
 	font-size: 3rem;
-	color: #ae35ae;
-	color: #3e75e8;
+	/*color: #ae35ae;*/
+	/*color: #3e75e8;*/
+	background-image: linear-gradient(#3e75e8, #21448e);
+	color: transparent;
+	background-clip: text;
+	-webkit-background-clip: text;
+}
+
+#dollar-line {
+	position: relative;
+	top: -40px;
+	left: 12px;
+	height: 29px;
+	width: 6px;
+	background: #3e75e8
+	
+}
+
+.smaller {
+	font-size: 2.5em;
 }
 
 .feature p {
@@ -315,6 +345,25 @@ h4 {
 
 
 
+.vid {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.embedded-vid {
+	/*border: 20px solid #00000026;*/
+	border-radius: 10px;
+}
+
+
+
+@media (max-width: 600px) {
+	#submit-button {
+		max-width: 150px;
+		white-space: normal;
+	}
+}
 
 
 
