@@ -21,6 +21,11 @@ body {
 	position: fixed;
 	top: 0;
 	background: #fdf6d6; 
+	background: #6bd6ce;
+	background: #6b9bd6;
+	background: #4598ff;
+	background: #67abff;
+	/*background: #45deff;*/
 	/*background: #efe3b0;*/
 	/*padding: 1em; <--NEVER SET PADDING 0N A FIXED-POSITION ELEMENT, THIS WILL OVERFLOW.*/
 	/*padding-left: 2em;*/
@@ -306,7 +311,8 @@ form {
 	font-size: 3rem;
 	/*color: #ae35ae;*/
 	/*color: #3e75e8;*/
-	background-image: linear-gradient(#3e75e8, #21448e);
+	/*background-image: linear-gradient(#3e75e8, #21448e);*/
+	background-image: linear-gradient(#67abff, #2e5dbf);
 	color: transparent;
 	background-clip: text;
 	-webkit-background-clip: text;
