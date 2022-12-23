@@ -2,11 +2,22 @@
 	--bg-grey: #d4d4d4;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	/*background-color: var(--bg-grey);*/
 	/*background: linear-gradient(180deg, lightyellow, brown);*/
 	/*background: linear-gradient(180deg, lightyellow, #e19747);*/
-	background: linear-gradient(180deg, #fdf6d6, #e19747);
+	/*background: linear-gradient(180deg, #fdf6d6, #e197474d);*/
+	/* ^ this was the original */
+
+	background: radial-gradient(#fdf6d6, #e197474d 80%),
+				linear-gradient(90deg, #e1974794, #fdf6d6 15%, #fdf6d6 85%, #e1974794 100%);
+
+	/*background: linear-gradient(180deg, #fdf6d6a3, #e1974714),
+				linear-gradient(90deg, #e19747, #fdf6d6 15%, #fdf6d6 85%, #e19747 100%);*/
 	background-size: cover;
 	background-repeat: no-repeat;
 	font-family: Montserrat, sans-serif;
@@ -25,6 +36,8 @@ body {
 	background: #6b9bd6;
 	background: #4598ff;
 	background: #67abff;
+	/* ^ nice genie blue*/
+	background: #fdf6d6; 
 	/*background: #45deff;*/
 	/*background: #efe3b0;*/
 	/*padding: 1em; <--NEVER SET PADDING 0N A FIXED-POSITION ELEMENT, THIS WILL OVERFLOW.*/
@@ -164,6 +177,17 @@ li{
 	font-weight: bold;
 }
 
+
+
+.vis-title:target::before {
+  content: "";
+  display: block;
+  height: 130px;  /*fixed header height*/
+  margin: -130px 0 0; /* negative fixed header height */
+}
+
+
+
 main {
 	margin: 11rem 3rem 3rem;
 }
@@ -187,7 +211,7 @@ section {
 
 .hero {
 	/*margin: 13rem 8rem 8rem;*/
-	margin: 0 8rem;
+	margin: 0 8rem 4rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -255,8 +279,20 @@ form {
 /*------Main Area------*/
 /*---------------------*/
 
+#sections-box {
+	background: #f4f5f659;
+	/*border: 10px solid #f4f5f69c;*/
+	border: 10px solid #f4f5f659;
+	border-radius: 12px;
+	margin-top: 4rem;
+}
+
+.intro {
+	margin-top: 4rem;
+}
+
 #slogan {
-	margin: 5rem 0 1em;
+	margin: 0;
 	font-family: 'Tulpen One', serif;
 	font-size: 2.5rem;
 	letter-spacing: 0.12rem;
@@ -298,10 +334,12 @@ form {
 	background: #fdf5ea;
 	background: linear-gradient(162deg, #fdf5ea 40%, #7f87ec4a);
 	background: linear-gradient(162deg, #fdf5ea 40%, #6ad6fc);*/
+	background: #f4f5f6;
 
 	border-radius: 30px;
 	/*border: solid 2px #999;*/
-	border: solid 2px #22458e;
+	border: solid 4px #75acf9;
+	border: solid 3px #bebebe;
 	/*box-shadow: 0 0 8px white;*/
 
 }
@@ -342,7 +380,7 @@ form {
 }
 
 .feat-short-desc {
-	font-weight: 500;
+	font-weight: 600;
 }
 
 .feat-long-desc {
