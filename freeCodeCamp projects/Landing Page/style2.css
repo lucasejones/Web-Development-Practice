@@ -24,6 +24,7 @@ body {
 	margin: 0;
 	line-height: 1.5;
 	font-size: 18px;
+	/*font-weight: 500;*/
 	/*background: #d8cfa1;*/
 	
 }
@@ -44,6 +45,10 @@ body {
 	/*padding-left: 2em;*/
 	width: 100%;
 	border-bottom: 6px double black;
+	z-index: 2;
+	/* ^ not necessary in general. 
+	here, it ensures the second lamp logo doesn't appear on top of it.
+	*/
 }
 
 #header-content {
@@ -212,7 +217,8 @@ main {
 
 
 section {
-	margin-top: 4rem;
+	/*margin-top: 4rem;*/
+	margin: 4rem 5rem 0;
 	text-align: center;
 	/*background: lightgreen;*/
 }
@@ -314,12 +320,16 @@ form {
 	margin-top: 4rem;
 }
 
-#slogan {
-	margin: 0 auto 3rem;
-	font-family: 'Tulpen One', serif;
-	font-size: 2.5rem;
-	letter-spacing: 0.12rem;
+
+.lamp-2 {
+	/*position: relative;*/
+	display: inline-block;
+	height: 50px;
+	width: 45px;
+	transform: scale(1.5);
 }
+
+
 
 .section-title {
 	display: inline-block;
@@ -334,12 +344,25 @@ form {
 	line-height: 1em;
 }
 
+/*#intro-desc {
+	background: #f5f6f7;
+	padding: 1rem;
+	border-radius: 30px;
+	border: 3px solid #bebebe;
+}*/
+
 
 
 
 /*------------------------*/
 /*----==< Features >==----*/
 /*------------------------*/
+
+#features {
+	margin: 0;
+	margin-top: 4rem;
+	text-align: center;
+}
 
 .feature-set {
 	display: flex;
@@ -439,6 +462,19 @@ form {
 .embedded-vid {
 	/*border: 20px solid #00000026;*/
 	border-radius: 10px;
+}
+
+
+
+/*---------------------*/
+/*----==< Outro >==----*/
+/*---------------------*/
+
+#slogan {
+	margin: 0 auto 3rem;
+	font-family: 'Tulpen One', serif;
+	font-size: 2.5rem;
+	letter-spacing: 0.12rem;
 }
 
 
