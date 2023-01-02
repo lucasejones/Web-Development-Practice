@@ -1,48 +1,23 @@
-:root {
-	--bg-grey: #d4d4d4;
-}
-
 html {
 	scroll-behavior: smooth;
 }
 
 body {
-	/*background-color: var(--bg-grey);*/
-	/*background: linear-gradient(180deg, lightyellow, brown);*/
-	/*background: linear-gradient(180deg, lightyellow, #e19747);*/
-	/*background: linear-gradient(180deg, #fdf6d6, #e197474d);*/
-	/* ^ this was the original */
-
 	background: radial-gradient(#fdf6d6, #e197474d 80%),
 				linear-gradient(90deg, #e1974794, #fdf6d6 15%, #fdf6d6 85%, #e1974794 100%);
-
-	/*background: linear-gradient(180deg, #fdf6d6a3, #e1974714),
-				linear-gradient(90deg, #e19747, #fdf6d6 15%, #fdf6d6 85%, #e19747 100%);*/
 	background-size: cover;
 	background-repeat: no-repeat;
 	font-family: Montserrat, sans-serif;
 	margin: 0;
 	line-height: 1.5;
-	font-size: 18px;
-	/*font-weight: 500;*/
-	/*background: #d8cfa1;*/
-	
+	font-size: 18px;	
 }
 
 #header {
 	position: fixed;
 	top: 0;
 	background: #fdf6d6; 
-	background: #6bd6ce;
-	background: #6b9bd6;
-	background: #4598ff;
-	background: #67abff;
-	/* ^ nice genie blue*/
-	background: #fdf6d6; 
-	/*background: #45deff;*/
-	/*background: #efe3b0;*/
 	/*padding: 1em; <--NEVER SET PADDING 0N A FIXED-POSITION ELEMENT, THIS WILL OVERFLOW.*/
-	/*padding-left: 2em;*/
 	width: 100%;
 	border-bottom: 6px double black;
 	z-index: 2;
@@ -69,9 +44,7 @@ body {
 #logo {
 	display: flex;
 	align-items: center;
-	/*width: vw;*/
 }
-
 
 .lamp {
 	display: inline-block;
@@ -132,7 +105,6 @@ body {
 	box-shadow: 2px 2px 2px white;
 }
 
-
 h2 {
 	margin: 0;
 	margin-left: 2rem;
@@ -162,30 +134,24 @@ nav ul {
 	/*width: 35vw; <--resizes distance with page*/
 }
 
-
 a {
 	margin-left: 3rem;
 }
 
-
 a:hover {
 	text-shadow: -1px -1px 6px white, -1px 1px 6px white, 1px 1px 6px white, 1px -1px 6px white;
 }
-
 
 li {
 	list-style: none;
 	font-size: 16px;
 }
 
-
 .nav-link {
 	text-decoration: none;
 	color: black;
 	font-weight: bold;
 }
-
-
 
 .vis-title:target::before {
   content: "";
@@ -203,10 +169,8 @@ li {
 
 
 main {
-	/*margin: 11rem 3rem 3rem;*/
 	margin: 11rem 3rem 0;
 	position: relative;
-	/*min-height: 100vh;*/
 }
 
 #main-container {
@@ -216,15 +180,12 @@ main {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	/*max-width: 1000px;*/
 }
 
-
 section {
-	/*margin-top: 4rem;*/
 	margin: 4rem 5rem 0;
 	text-align: center;
-	/*background: lightgreen;*/
+	/*background: lightgreen; <--dev use only*/
 }
 
 
@@ -235,8 +196,6 @@ section {
 /*-------------------------*/
 
 .hero {
-	/*margin: 13rem 8rem 8rem;*/
-	/*margin: 0 24rem 4rem;*/
 	margin-top: 0;
 	display: flex;
 	flex-direction: column;
@@ -247,7 +206,7 @@ section {
 	max-width: 745px;
 	width: 100%;
 	text-align: center;
-	/*background: lightyellow;*/
+	/*background: lightyellow; <--dev use only*/
 	background: radial-gradient(
 		#fffbe0 40%, #eed690);
 	border-radius: 10px;
@@ -255,57 +214,7 @@ section {
 	border: 4px solid #f7e5b2;
 }
 
-
-/*@font-face { 
-font-family: 'GT Ultra standard black'; 
-src: url('Web/GT-Ultra/GT-Ultra-Standard-Black-Trial.woff2') format('woff2'); 
-}
-
-@font-face { 
-font-family: 'GT Ultra median black'; 
-src: url('Web/GT-Ultra/GT-Ultra-Median-Black-Trial.woff2') format('woff2'); 
-}
-
-@font-face { 
-font-family: 'GT Ultra fine black'; 
-src: url('Web/GT-Ultra/GT-Ultra-Fine-Black-Trial.woff2') format('woff2'); 
-}
-
-@font-face { 
-font-family: 'GT Super d super'; 
-src: url('Web/GT-Super/GT-Super-Display-Super.woff2') format('woff2'); 
-}
-
-@font-face { 
-font-family: 'GT Super d bold'; 
-src: url('Web/GT-Super/GT-Super-Display-Bold.woff2') format('woff2'); 
-}
-
-@font-face { 
-font-family: 'GT Super t black'; 
-src: url('Web/GT-Super/GT-Super-Text-Black.woff2') format('woff2'); 
-}
-
-@font-face { 
-font-family: 'GT Super t medium'; 
-src: url('Web/GT-Super/GT-Super-Text-Medium.woff2') format('woff2'); 
-}
-
-@font-face { 
-font-family: 'GT Super t book'; 
-src: url('Web/GT-Super/GT-Super-Text-Book.woff2') format('woff2'); 
-}*/
-
 #tagline {
-
-	/*font-family: 'GT Ultra standard black';*/
-	/*font-family: 'GT Ultra median black';*/
-	/*font-family: 'GT Ultra fine black';*/
-	/*font-family: 'GT Super d super'; */
-	/*font-family: 'GT Super t black'; */
-	/*font-size: 2.8rem;*/
-	/*letter-spacing: 0.06rem;*/
-
 	margin: 1.5rem 0 1rem;
 	text-align: center;
 	font-size: 2.5rem;
@@ -313,21 +222,9 @@ src: url('Web/GT-Super/GT-Super-Text-Book.woff2') format('woff2');
 }
 
 #tagline-two {
-
-	/*font-family: 'GT Super d super';*/
-	/*font-family: 'GT Ultra median black';*/
-	/*font-family: 'GT Walsheim black'; */
-	/*font-family: 'GT Super t black'; */
-
 	margin: 0 0 1.5rem;
 	font-size: 1.4rem;
-	/*letter-spacing: 0.2rem;*/
 }
-
-/*#tagline, #tagline-two {
-	font-family: 'GT Super t black'; 
-}*/
-
 
 form {
 	display: flex;
@@ -335,7 +232,7 @@ form {
 	justify-content: center;
 	align-items: center;
 	margin-top: 1rem;
-	/*background: lightgreen;*/
+	/*background: lightgreen; <-- dev use only*/
 	width: 50%;
 }
 
@@ -351,7 +248,6 @@ form {
 	margin: 1.5rem 0 1rem;
 	font-size: 1em;
 	text-transform: uppercase;
-	/*background: #ffff6a;*/
 	background: radial-gradient(
 		#ffff6a 40%, #eed690);
 	border-radius: 10px;
@@ -369,46 +265,10 @@ form {
 /*-----==< Intro >==-----*/
 /*-----------------------*/
 
-/*@font-face { 
-font-family: 'GT Ultra standard regular'; 
-src: url('Web/GT-Ultra/GT-Ultra-Standard-Regular-Trial.woff2') format('woff2'); 
-}
-
-@font-face { 
-font-family: 'GT Ultra standard thin'; 
-src: url('Web/GT-Ultra/GT-Ultra-Standard-Thin-Trial.woff2') format('woff2'); 
-}
-
-@font-face { 
-font-family: 'GT Ultra median thin'; 
-src: url('Web/GT-Ultra/GT-Ultra-Median-Thin-Trial.woff2') format('woff2'); 
-}
-
-@font-face { 
-font-family: 'GT Ultra fine thin'; 
-src: url('Web/GT-Ultra/GT-Ultra-Fine-Thin-Trial.woff2') format('woff2'); 
-}
-
-@font-face { 
-font-family: 'GT Ultra fine light'; 
-src: url('Web/GT-Ultra/GT-Ultra-Fine-Light-Trial.woff2') format('woff2'); 
-}*/
-
-
-
 #sections-box {
-
-	/*font-family: 'GT Ultra standard regular';
-	font-family: 'GT Ultra standard thin';
-	font-family: 'GT Ultra median thin';
-	font-family: 'GT Ultra fine thin';
-	font-family: 'GT Ultra fine light';*/
-
 	background: #f4f5f659;
-	/*border: 10px solid #f4f5f69c;*/
 	border: 10px solid #f4f5f659;
 	border-radius: 12px;
-	/*margin-top: 4rem;*/
 	margin: 4rem 7rem 0;
 	padding: 0 1rem;
 	width: 100%;
@@ -419,16 +279,12 @@ src: url('Web/GT-Ultra/GT-Ultra-Fine-Light-Trial.woff2') format('woff2');
 	margin-top: 4rem;
 }
 
-
 .lamp-2 {
-	/*position: relative;*/
 	display: inline-block;
 	height: 50px;
 	width: 45px;
 	transform: scale(1.5);
 }
-
-
 
 .section-title {
 	display: inline-block;
@@ -442,13 +298,6 @@ src: url('Web/GT-Ultra/GT-Ultra-Fine-Light-Trial.woff2') format('woff2');
 	border-bottom: 0.2rem solid black;
 	line-height: 1em;
 }
-
-/*#intro-desc {
-	background: #f5f6f7;
-	padding: 1rem;
-	border-radius: 30px;
-	border: 3px solid #bebebe;
-}*/
 
 
 
@@ -468,9 +317,8 @@ src: url('Web/GT-Ultra/GT-Ultra-Fine-Light-Trial.woff2') format('woff2');
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	/*background: lightblue;*/
+	/*background: lightblue; <--dev use only*/
 }
-
 
 .feature {
 	margin: 1rem;
@@ -478,30 +326,14 @@ src: url('Web/GT-Ultra/GT-Ultra-Fine-Light-Trial.woff2') format('woff2');
 	text-align: center;
 	max-width: 300px;
 	min-height: 225px;
-	background: #f4f4f4;
-	background: linear-gradient(#f4f4f4, #dbdbdb);
-	background: linear-gradient(#f4f4f4, #edeba8);
-	background: linear-gradient(162deg, #f4f4f4 40%, #7f87ec4a);
-/*	background: linear-gradient(162deg, #f4f4f4 40%, #e6e6e6);
-	background: #fdf5ea;
-	background: linear-gradient(162deg, #fdf5ea 40%, #7f87ec4a);
-	background: linear-gradient(162deg, #fdf5ea 40%, #6ad6fc);*/
 	background: #f4f5f6;
-
 	border-radius: 30px;
-	/*border: solid 2px #999;*/
-	border: solid 4px #75acf9;
 	border: solid 3px #bebebe;
-	/*box-shadow: 0 0 8px white;*/
-
 }
 
 .feature-icon {
 	margin-top: 2rem;
 	font-size: 3rem;
-	/*color: #ae35ae;*/
-	/*color: #3e75e8;*/
-	/*background-image: linear-gradient(#3e75e8, #21448e);*/
 	background-image: linear-gradient(#67abff, #2e5dbf);
 	color: transparent;
 	background-clip: text;
@@ -515,7 +347,6 @@ src: url('Web/GT-Ultra/GT-Ultra-Fine-Light-Trial.woff2') format('woff2');
 	height: 29px;
 	width: 6px;
 	background: #3e75e8
-	
 }
 
 #feature-2 {
@@ -552,22 +383,35 @@ src: url('Web/GT-Ultra/GT-Ultra-Fine-Light-Trial.woff2') format('woff2');
 /*---------------------*/
 
 
-.vid {
+#vid {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
 .embedded-vid {
-	/*border: 20px solid #00000026;*/
 	border-radius: 10px;
 }
 
 
 
-/*---------------------*/
-/*----==< Outro >==----*/
-/*---------------------*/
+
+/*--------------------------*/
+/*---==< How It Works >==---*/
+/*--------------------------*/
+
+
+.price {
+	font-weight: bold;
+}
+
+
+
+
+/*----------------------*/
+/*----==< Slogan >==----*/
+/*----------------------*/
+
 
 #slogan {
 	margin: 0 auto 3rem;
@@ -576,33 +420,27 @@ src: url('Web/GT-Ultra/GT-Ultra-Fine-Light-Trial.woff2') format('woff2');
 	letter-spacing: 0.12rem;
 }
 
-
 .smallprint {
 	font-size: 0.8rem;
 	text-align: left;
 }
 
-.price {
-	font-weight: bold;
-}
-
-.underline {
-	text-decoration: underline;
-}
-
 .break {
+	width: 100%;
 	border-top: 6px double black;
 }
-
 
 #attribution {
 	font-size: 1rem;
 }
 
 
+
+
 /*----------------------*/
 /*----==< Footer >==----*/
 /*----------------------*/
+
 
 footer {
 	position: absolute;
@@ -638,13 +476,13 @@ footer {
 /*-----==< Media Queries >==-----*/
 /*-------------------------------*/
 
+
 @media (max-width: 1250px) {
 	#feature-2 {
 		margin-left: 1rem;
 		margin-right: 1rem;
 	}
 }
-
 
 @media (max-width: 672px) {
 
@@ -679,7 +517,6 @@ footer {
 
 }
 
-
 @media (max-width: 600px) {
 	#submit-button {
 		max-width: 150px;
@@ -695,12 +532,3 @@ footer {
 		margin-right: 0;
 	}
 }
-
-
-
-
-
-
-
-
-
