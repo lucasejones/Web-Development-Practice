@@ -173,7 +173,7 @@ a:hover {
 }
 
 
-li{
+li {
 	list-style: none;
 	font-size: 16px;
 }
@@ -203,11 +203,15 @@ li{
 
 
 main {
-	margin: 11rem 3rem 3rem;
+	/*margin: 11rem 3rem 3rem;*/
+	margin: 11rem 3rem 0;
+	position: relative;
+	/*min-height: 100vh;*/
 }
 
 #main-container {
 	margin: 0 auto;
+	padding-bottom: 8rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -252,16 +256,77 @@ section {
 }
 
 
+/*@font-face { 
+font-family: 'GT Ultra standard black'; 
+src: url('Web/GT-Ultra/GT-Ultra-Standard-Black-Trial.woff2') format('woff2'); 
+}
+
+@font-face { 
+font-family: 'GT Ultra median black'; 
+src: url('Web/GT-Ultra/GT-Ultra-Median-Black-Trial.woff2') format('woff2'); 
+}
+
+@font-face { 
+font-family: 'GT Ultra fine black'; 
+src: url('Web/GT-Ultra/GT-Ultra-Fine-Black-Trial.woff2') format('woff2'); 
+}
+
+@font-face { 
+font-family: 'GT Super d super'; 
+src: url('Web/GT-Super/GT-Super-Display-Super.woff2') format('woff2'); 
+}
+
+@font-face { 
+font-family: 'GT Super d bold'; 
+src: url('Web/GT-Super/GT-Super-Display-Bold.woff2') format('woff2'); 
+}
+
+@font-face { 
+font-family: 'GT Super t black'; 
+src: url('Web/GT-Super/GT-Super-Text-Black.woff2') format('woff2'); 
+}
+
+@font-face { 
+font-family: 'GT Super t medium'; 
+src: url('Web/GT-Super/GT-Super-Text-Medium.woff2') format('woff2'); 
+}
+
+@font-face { 
+font-family: 'GT Super t book'; 
+src: url('Web/GT-Super/GT-Super-Text-Book.woff2') format('woff2'); 
+}*/
+
 #tagline {
+
+	/*font-family: 'GT Ultra standard black';*/
+	/*font-family: 'GT Ultra median black';*/
+	/*font-family: 'GT Ultra fine black';*/
+	/*font-family: 'GT Super d super'; */
+	/*font-family: 'GT Super t black'; */
+	/*font-size: 2.8rem;*/
+	/*letter-spacing: 0.06rem;*/
+
 	margin: 1.5rem 0 1rem;
 	text-align: center;
 	font-size: 2.5rem;
+	
 }
 
 #tagline-two {
+
+	/*font-family: 'GT Super d super';*/
+	/*font-family: 'GT Ultra median black';*/
+	/*font-family: 'GT Walsheim black'; */
+	/*font-family: 'GT Super t black'; */
+
 	margin: 0 0 1.5rem;
 	font-size: 1.4rem;
+	/*letter-spacing: 0.2rem;*/
 }
+
+/*#tagline, #tagline-two {
+	font-family: 'GT Super t black'; 
+}*/
 
 
 form {
@@ -304,7 +369,41 @@ form {
 /*-----==< Intro >==-----*/
 /*-----------------------*/
 
+/*@font-face { 
+font-family: 'GT Ultra standard regular'; 
+src: url('Web/GT-Ultra/GT-Ultra-Standard-Regular-Trial.woff2') format('woff2'); 
+}
+
+@font-face { 
+font-family: 'GT Ultra standard thin'; 
+src: url('Web/GT-Ultra/GT-Ultra-Standard-Thin-Trial.woff2') format('woff2'); 
+}
+
+@font-face { 
+font-family: 'GT Ultra median thin'; 
+src: url('Web/GT-Ultra/GT-Ultra-Median-Thin-Trial.woff2') format('woff2'); 
+}
+
+@font-face { 
+font-family: 'GT Ultra fine thin'; 
+src: url('Web/GT-Ultra/GT-Ultra-Fine-Thin-Trial.woff2') format('woff2'); 
+}
+
+@font-face { 
+font-family: 'GT Ultra fine light'; 
+src: url('Web/GT-Ultra/GT-Ultra-Fine-Light-Trial.woff2') format('woff2'); 
+}*/
+
+
+
 #sections-box {
+
+	/*font-family: 'GT Ultra standard regular';
+	font-family: 'GT Ultra standard thin';
+	font-family: 'GT Ultra median thin';
+	font-family: 'GT Ultra fine thin';
+	font-family: 'GT Ultra fine light';*/
+
 	background: #f4f5f659;
 	/*border: 10px solid #f4f5f69c;*/
 	border: 10px solid #f4f5f659;
@@ -475,6 +574,61 @@ form {
 	font-family: 'Tulpen One', serif;
 	font-size: 2.5rem;
 	letter-spacing: 0.12rem;
+}
+
+
+.smallprint {
+	font-size: 0.8rem;
+	text-align: left;
+}
+
+.price {
+	font-weight: bold;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.break {
+	border-top: 6px double black;
+}
+
+
+#attribution {
+	font-size: 1rem;
+}
+
+
+/*----------------------*/
+/*----==< Footer >==----*/
+/*----------------------*/
+
+footer {
+	position: absolute;
+	bottom: 0;
+	min-width: 100vw;
+	background: #fdf6d6;
+}
+
+.links {
+	margin: 1.5rem;
+}
+
+.links ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: right;
+	align-items: center;
+	padding: 0;
+}
+
+.links ul li {
+	margin-left: 2rem;
+}
+
+.links ul li:hover {
+	cursor: pointer;
 }
 
 
