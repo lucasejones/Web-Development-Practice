@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+/*  text-align: center;*/
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -9,5 +9,65 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+
+.app-title {
+  margin: -10rem 0 5rem;
+}
+
+
+
+
+#quote-box {
+  display: block;
+  position: relative;
+  width: 50%;
+/*  max-width: 750px;*/
+  max-width: 80vw;
+  background: #333;
+/*  text-align: center;*/
+  border: 3px solid #222;
+  border-radius: 6px;
+  padding: 2rem;
+}
+
+#text {
+  margin: 0;
+  text-align: center;
+  font-style: italic;
+}
+
+#author {
+  margin-right: 4rem;
+  text-align: right;
+}
+
+
+
+
+#new-quote {
+  text-align: center;
+}
+
+
+#tweet-quote {
+  display: inline-block;
+
+}
+
+#twitter-icon {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  transform: scale(0.8);
+}
+
+
+
+
+
+
+
+
 
 
