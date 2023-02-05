@@ -6,148 +6,58 @@ import { useState, useEffect, useRef } from 'react';
 function QuoteBox() {
 	const [data, setData] = useState('');
 	const [count, setCount] = useState(0);
-	// let url = 'https://swapi.dev/api/planets/'
+	const [toggle, setToggle] = useState(false)
+	let url = 'https://swapi.dev/api/planets/'
 	// let url = 'http://jsonplaceholder.typicode.com/albums/'
 	// let url = 'https://jsonplaceholder.typicode.com/users'
-	const url = 'https://api.adviceslip.com/advice';
+	// const url = 'https://api.adviceslip.com/advice';
 
 	useEffect(() => {
 		const fetchIt = async () => {
-		const res = await fetch('https://api.adviceslip.com/advice', {cache: 'no-cache'});
+		const res = await fetch(url, {cache: 'no-cache'});
 		var data = await res.json()
 
-		setData(data.slip.advice)
+		setData(data)
 		}
 
 		fetchIt()
-	}, [count])
+		console.log('re-rendered')
+	}, [])
+
+	// nothing needs to be passed in as a dependency in the array in order for the component to work. the two buttons are there to demonstrate that you can click either one and get the expected behavior.
+
+	// how is this the expected behavior? all you did was toggle a state and the whole component re-rendered? what if you didn't want the whole component to re-render? do you always want the whole component to re-render on a state change?
 
 
 	function handleClick() {
-		setCount(prevcount => prevcount + 1)
+		// setCount(prevcount => prevcount + 1)
+		setToggle(prevState => !prevState)
+		console.log(toggle)
 		// console.log(count)
 	}
+
+	function handleClick2() {
+		setCount(prevcount => prevcount + 1)
+		// setToggle(prevState => !prevState)
+		// console.log(toggle)
+		console.log(count)
+	}
 	 
-
-	// useEffect(() => {
-	// 	const fetchDat = async () => {
-	// 		try {
-	// 			var response = await fetch(url)
-	// 			var daz = await response.json()
-	// 			console.log('daz:', daz)
-	// 			setData(daz)
-	// 		} catch (error) {
-	// 			console.log('errrrrr', error)
-	// 		}
-	// 	}
-	// 	// document.title = `You clicked ${count} times`;
-	// 	setData(count);
-	// 	fetchDat();
-	// }, [])
+	if (!data) {
+		return <div>LOADING</div>
+	}
+  
+	const ressies = data.results
+	var item = ressies[Math.floor(Math.random() * ressies.length)];
+	console.log('con', item, toggle, count)
 
 
-	
 
-	// function handleClick() {
-	// 	setCount(prevcount => prevcount + 1)
-	// 	// try {
-	// 	// 	fetchDat()
-	// 	// } catch (error) {
-	// 	// 	console.log('errrrrr2', error)
-	// 	// }
-	// }
-
-	// useEffect(() => {
-	// 	fetchData();
-	// }, []);
-
-	// const url = 'https://api.adviceslip.com/advice';
-	// const fetchData = async () => {
-	// 	try {
-	// 		var response = await fetch(url);
-	// 		var json = await response.json();
-	// 		setData(json.slip.advice);
-	// 	} catch (error) {
-	// 		console.log('error:', error);
-	// 	}
-	// }
-
-	
-
-	
-
-	// useEffect(() => {
-	// 	swapps()
-	// }, [])
-
-	// const swapps = async () => {
-	// 	const response = await fetch(url);
-	// 	const dataz = await response.json()
-	// 	setData(dataz)
-	// }
-
-	// var ressies = data.results
-
-	// if (ressies) {
-	// 	var item = ressies[Math.floor(Math.random() * ressies.length)];
-	// 	console.log(item)
-	// }	
-
-	// if (!ressies) {
-	// 	return <div>LOADING</div>
-	// }
-
-	// const fetchData = async () => {
-	// 	const response = await fetch(url);
-	// 	const datam = await response.json()
-	// 	setData(datam)
-	// }
-
-	// useEffect(() => {
-	// 	fetchData()
-	// }, [])
-
-	// const updateData = () => {
-	// 	fetch(url)
-	// 		.then(response => {
-	// 			return response.json()
-	// 		})
-	// 		.then(datas => {
-	// 			setData(datas)
-	// 		})
-	// }
-
-	// var ressies = data.results
-
-	// if (ressies) {
-	// 	var item = ressies[Math.floor(Math.random() * ressies.length)];
-	// 	console.log(item)
-	// }	
-
-	// console.log(data)
-
-	// useEffect(() => {
-	// 	fetch(url)
-	// 		.then(res => res.json())
-	// 		.then(json => console.log(json))
-	// 		.then(datz => setData(datz))
-	// 		.catch(err => console.log(err));
-	// }, [])
-
-	console.log(data)
-
-	// if (!data) {
-	// 	return <div>LOADING</div>
-	// }
 
 	return(
 		<div id='quote-box'>
-			{/*{ressies.map(thing => {
-				return(
-					<h2>{thing.name}</h2>
-				)
-			})}*/}
-			{/*<h2 id='text'>"{item.name}"</h2>*/}
+			<h2 id='text'>{item.name}</h2>
+
 			{/*{data.map(t => {
 				return(
 					<h2 key={t.id}>{t.name}</h2>
@@ -155,15 +65,15 @@ function QuoteBox() {
 				
 			})}*/}
 
-			<h2>{data}</h2>
 
 			<h5 id='author'>-Author</h5>
 
 			<div id='new-quote'>
 				{/*<Button OnClick={fetchData} text='New Quote'/>*/}
-				{/*<button onClick={handleClick}>Click here</button>*/}
-			<button onClick={handleClick}>Click here</button>
-				<h5>{count}</h5>
+
+				<button onClick={handleClick}>toggle</button>
+				<button onClick={handleClick2}>count</button>
+					<h5>{count}</h5>
 			</div>
 
 			<a href='#1' id='tweet-quote'>
