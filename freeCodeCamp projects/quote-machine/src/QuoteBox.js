@@ -57,19 +57,20 @@ function QuoteBox() {
 	// assign some slight and themed bg color swap depending on planet
 	// call it something cool
 	// get rid of the twitter thing
-	
+	// fix the yavin 4 thing
 
 	return(
-		<div id='quote-box'>
+		<div id='planet-box'>
+
 			{/*<h2 id='text'>"Quote Goes Here"</h2>*/}
-			<h2 id='text'>{item.name}</h2>
+			<h1 id='planet-title'>{item.name}</h1>
 
 
 			<div className='fetched'>
 				<div className='fetched-keys'>
 					{keys.map(i => {
 						return(
-							<li className='fetched-data' key={i}>{i}:</li>
+							<li className='fetched-item' key={i}>{i}:</li>
 						)
 							
 						})
@@ -79,7 +80,7 @@ function QuoteBox() {
 				<div className='fetched-values'>
 					{values.map(i => {
 						return(
-							<li className='fetched-data' key={i}>{i}</li>
+							<li className='fetched-item' key={i}>{i}</li>
 						)
 							
 						})
@@ -88,14 +89,13 @@ function QuoteBox() {
 				</div>
 			</div>
 
-			<h5 id='author'>-Author</h5>
 			<div id='new-quote'>
-				<Button handleClick={handleClick} text='New Quote'/>
+				<Button handleClick={handleClick} text='New Planet'/>
 			</div>
 
-			<a href='#1' id='tweet-quote'>
+			{/*<a href='#1' id='tweet-quote'>
 				<img id='twitter-icon' alt='twitter icon' src={twittericon} />
-			</a>
+			</a>*/}
 		</div>
 	);
 }
