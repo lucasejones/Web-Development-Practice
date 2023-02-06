@@ -10,13 +10,22 @@
   color: white;
 }
 
-.app-title {
+.app-title, .app-title-small-screen {
   margin-bottom: 2rem;
   font-family: 'Star Jedi Logo Monoline';
   font-size: 3rem;
   letter-spacing: 1.5px;
-/*  margin: 0;*/
 }
+
+.app-title {
+  white-space: nowrap;
+}
+
+.app-title-small-screen {
+  display: none;
+}
+
+
 
 .rebel-symbol {
   font-family: 'Star Jedi Rounded';
@@ -69,9 +78,19 @@
 
 
 
-#new-quote {
+#new-planet {
   margin-top: 2rem;
   text-align: center;
+}
+
+#new-planet-text {
+  font-family: 'Sterilict';
+}
+
+.button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-family: 'Sterilict'
 }
 
 
@@ -91,12 +110,14 @@
 .fetched {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+/*  justify-content: space-evenly;*/
+  width: 100%;
   margin: 1rem;
 }
 
 .fetched-values{
   margin-left: 2rem;
+  overflow: auto;
 }
 
 .fetched-item {
@@ -107,7 +128,46 @@
   font-size: 1.2rem;
 }
 
+@media screen and (max-width: 570px) {
+  .app-title {
+    display: none;
+  }
 
+  .app-title-small-screen {
+    display: block;
+    width: min-content;
+    text-align: center;
+    line-height: 3rem;
+  }
+
+  .content-container {
+    display: flex;
+    align-items: center;
+    max-width: 90%;
+/*    width: min-content;*/
+  }
+
+  #planet-box {
+/*    overflow: auto;*/
+
+  }
+
+  .fetched {
+    overflow: auto;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .fetched-item {
+    font-size: 0.8rem;
+  }
+
+  .button {
+    padding: 0.5rem;
+    font-size: 0.65rem;
+  }
+}
 
 
 /*.left-data {

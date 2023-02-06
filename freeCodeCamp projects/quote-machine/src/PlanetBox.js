@@ -3,13 +3,10 @@ import twittericon from './images/twittericon.png';
 import { useState, useEffect, useRef } from 'react';
 
 
-function QuoteBox() {
+function PlanetBox() {
 	const [data, setData] = useState('');
 	const [toggle, setToggle] = useState(false)
 	let url = 'https://swapi.dev/api/planets/'
-	// let url = 'http://jsonplaceholder.typicode.com/albums/'
-	// let url = 'https://jsonplaceholder.typicode.com/users'
-	// const url = 'https://api.adviceslip.com/advice';
 
 	useEffect(() => {
 		const fetchIt = async () => {
@@ -58,13 +55,13 @@ function QuoteBox() {
 	// call it something cool
 	// get rid of the twitter thing
 	// fix the yavin 4 thing
+	// media queries for small size (logo in particular)
+
+
 
 	return(
 		<div id='planet-box'>
-
-			{/*<h2 id='text'>"Quote Goes Here"</h2>*/}
-			<h1 id='planet-title'>{item.name}</h1>
-
+			<h1 id='planet-title'>{item.name == 'Yavin IV' ? 'Yavin 4' : item.name}</h1>
 
 			<div className='fetched'>
 				<div className='fetched-keys'>
@@ -89,8 +86,8 @@ function QuoteBox() {
 				</div>
 			</div>
 
-			<div id='new-quote'>
-				<Button handleClick={handleClick} text='New Planet'/>
+			<div id='new-planet'>
+				<Button handleClick={handleClick} id='new-planet-text' text='New Planet'/>
 			</div>
 
 			{/*<a href='#1' id='tweet-quote'>
@@ -100,4 +97,4 @@ function QuoteBox() {
 	);
 }
 
-export default QuoteBox;
+export default PlanetBox;

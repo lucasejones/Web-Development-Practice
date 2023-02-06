@@ -2,10 +2,7 @@ function Button(props) {
 	return(
 		<div>
 			<button 
-				style={{
-					padding: '0.5rem',
-					fontSize: '1rem'
-				}}
+				className='button'
 				onClick={props.handleClick}
 			>
 			{props.text}
