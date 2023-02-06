@@ -35,6 +35,7 @@
   margin: 0;
   text-align: center;
   font-style: italic;
+  margin-bottom: 2rem;
 }
 
 #author {
@@ -63,6 +64,12 @@
 }
 
 
+
+.fetched_details {
+  text-align: left;
+  margin-left: 30%;
+  list-style: none;
+}
 
 
 

@@ -6,6 +6,7 @@ function Button(props) {
 					padding: '0.5rem',
 					fontSize: '1rem'
 				}}
+				onClick={props.handleClick}
 			>
 			{props.text}
 			</button>

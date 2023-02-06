@@ -5,7 +5,6 @@ import { useState, useEffect, useRef } from 'react';
 
 function QuoteBox() {
 	const [data, setData] = useState('');
-	const [count, setCount] = useState(0);
 	const [toggle, setToggle] = useState(false)
 	let url = 'https://swapi.dev/api/planets/'
 	// let url = 'http://jsonplaceholder.typicode.com/albums/'
@@ -14,7 +13,7 @@ function QuoteBox() {
 
 	useEffect(() => {
 		const fetchIt = async () => {
-		const res = await fetch(url, {cache: 'no-cache'});
+		const res = await fetch(url);
 		var data = await res.json()
 
 		setData(data)
@@ -24,24 +23,11 @@ function QuoteBox() {
 		console.log('re-rendered')
 	}, [])
 
-	// nothing needs to be passed in as a dependency in the array in order for the component to work. the two buttons are there to demonstrate that you can click either one and get the expected behavior.
-
-	// how is this the expected behavior? all you did was toggle a state and the whole component re-rendered? what if you didn't want the whole component to re-render? do you always want the whole component to re-render on a state change?
-
 
 	function handleClick() {
-		// setCount(prevcount => prevcount + 1)
 		setToggle(prevState => !prevState)
-		console.log(toggle)
-		// console.log(count)
 	}
 
-	function handleClick2() {
-		setCount(prevcount => prevcount + 1)
-		// setToggle(prevState => !prevState)
-		// console.log(toggle)
-		console.log(count)
-	}
 	 
 	if (!data) {
 		return <div>LOADING</div>
@@ -49,31 +35,27 @@ function QuoteBox() {
   
 	const ressies = data.results
 	var item = ressies[Math.floor(Math.random() * ressies.length)];
-	console.log('con', item, toggle, count)
-
-
+	console.log(item)
 
 
 	return(
 		<div id='quote-box'>
+			{/*<h2 id='text'>"Quote Goes Here"</h2>*/}
 			<h2 id='text'>{item.name}</h2>
 
-			{/*{data.map(t => {
+			{Object.keys(item).slice(0, -5).map((key, index) => {
 				return(
-					<h2 key={t.id}>{t.name}</h2>
+					<li className='fetched_details' key={index}>
+						{key}: {item[key]}
+					</li>
 				)
-				
-			})}*/}
-
+				})
+			}
+			{/*get the layout of the overall page to work (should look the way it did with just the placeholder "Quote Goes Here' element, lots of space at top of page, etc*/}
 
 			<h5 id='author'>-Author</h5>
-
 			<div id='new-quote'>
-				{/*<Button OnClick={fetchData} text='New Quote'/>*/}
-
-				<button onClick={handleClick}>toggle</button>
-				<button onClick={handleClick2}>count</button>
-					<h5>{count}</h5>
+				<Button handleClick={handleClick} text='New Quote'/>
 			</div>
 
 			<a href='#1' id='tweet-quote'>
