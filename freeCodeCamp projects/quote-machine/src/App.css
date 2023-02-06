@@ -12,7 +12,8 @@
 
 
 .app-title {
-  margin: -10rem 0 5rem;
+/*  margin: -10rem 0 5rem;*/
+margin-bottom: 4rem;
 }
 
 
@@ -21,9 +22,10 @@
 #quote-box {
   display: block;
   position: relative;
-  width: 50%;
+/*  width: 50%;*/
 /*  max-width: 750px;*/
-  max-width: 80vw;
+/*  max-width: 80vw;*/
+/*  max-height: 20%;*/
   background: #333;
 /*  text-align: center;*/
   border: 3px solid #222;
@@ -64,13 +66,36 @@
 }
 
 
-
-.fetched_details {
-  text-align: left;
-  margin-left: 30%;
-  list-style: none;
+.fetched {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 1rem;
 }
 
+.fetched-values{
+  margin-left: 2rem;
+}
+
+.fetched-data {
+  text-align: left;
+  list-style: none;
+  white-space: nowrap;
+  font-size: 1.2rem;
+}
+
+
+
+
+/*.left-data {
+  position: absolute;
+  left: 15%;
+}
+
+
+.right-data {
+  text-align: left;
+}*/
 
 
 

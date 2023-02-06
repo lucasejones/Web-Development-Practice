@@ -34,24 +34,59 @@ function QuoteBox() {
 	}
   
 	const ressies = data.results
+	console.log(ressies)
 	var item = ressies[Math.floor(Math.random() * ressies.length)];
 	console.log(item)
 
+	var keys = []
+	var values = []
+
+	Object.keys(item).slice(0, -5).map((key, index) => {
+		keys.push(key);
+		values.push(item[key])
+	})
+
+	for (let i = 0; i < keys.length; i++) {
+		keys[i] = keys[i].replace(/_/g, ' ');
+	}
+
+	// get the quotebox to be one consistent size
+	// fix the bottom of the page to be a consistent gap
+	// place the fetched data in the same spot each time in the box
+	// display a semitransparent background image of the planet described
+	// assign some slight and themed bg color swap depending on planet
+	// call it something cool
+	// get rid of the twitter thing
+	
 
 	return(
 		<div id='quote-box'>
 			{/*<h2 id='text'>"Quote Goes Here"</h2>*/}
 			<h2 id='text'>{item.name}</h2>
 
-			{Object.keys(item).slice(0, -5).map((key, index) => {
-				return(
-					<li className='fetched_details' key={index}>
-						{key}: {item[key]}
-					</li>
-				)
-				})
-			}
-			{/*get the layout of the overall page to work (should look the way it did with just the placeholder "Quote Goes Here' element, lots of space at top of page, etc*/}
+
+			<div className='fetched'>
+				<div className='fetched-keys'>
+					{keys.map(i => {
+						return(
+							<li className='fetched-data' key={i}>{i}:</li>
+						)
+							
+						})
+
+					}
+				</div>
+				<div className='fetched-values'>
+					{values.map(i => {
+						return(
+							<li className='fetched-data' key={i}>{i}</li>
+						)
+							
+						})
+
+					}
+				</div>
+			</div>
 
 			<h5 id='author'>-Author</h5>
 			<div id='new-quote'>
