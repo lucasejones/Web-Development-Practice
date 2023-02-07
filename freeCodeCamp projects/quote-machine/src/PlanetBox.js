@@ -51,6 +51,7 @@ function PlanetBox() {
 	// display a semitransparent background image of the planet described
 	// assign some slight and themed bg color swap depending on planet
 	// fix all the unstructured css
+	// fix the favicon to be something relevant
 
 
 	return(
