@@ -1,7 +1,4 @@
 import Button from './Button.js';
-// import twittericon from './images/twittericon.png';
-// import yav from './images/Yavin IV.webp';
-// import './Naboo.jpg';
 import { useState, useEffect} from 'react';
 
 
@@ -31,15 +28,18 @@ function PlanetBox() {
 	if (!data) {
 		return <div className='loading'>loading...</div>
 	}
-  
-	const ressies = data.results
-	console.log(ressies)
-	var item = ressies[Math.floor(Math.random() * ressies.length)];
+  	
+	const dataResults = data.results
+	// console.log(dataResults)
+
+	// obtaining a random item
+	var item = dataResults[Math.floor(Math.random() * dataResults.length)];
 	console.log(item)
 
+
+	// preparing the arrays that will be displayed
 	var keys = []
 	var values = []
-
 	Object.keys(item).slice(0, -5).map((key, index) => {
 		keys.push(key);
 		values.push(item[key])
@@ -49,10 +49,14 @@ function PlanetBox() {
 		keys[i] = keys[i].replace(/_/g, ' ');
 	}
 
+	// console.log('keys', keys)
+	// console.log('vals', values)
 
 
 
 
+	// creating a custom context using require.context
+	// reference here: https://webpack.js.org/guides/dependency-management/#require-context
 
 	function imageImport(r) {
 		let images = {}
@@ -76,25 +80,24 @@ function PlanetBox() {
 	// the space in Yavin IV was causing strange behavior in which the image was correctly indexed from the allImages object, but was not displaying, despite all the other data doing so. Modifying the image filename to swap the space for a hyphen and changing the fetched item name resolves the issue, though surely there's a more robust approach with larger datasets.
 
 
-
-
+	// To-Dos:
+	// break up this big component?
 	// assign some slight and themed bg color swap depending on planet
 	// fix all the unstructured css names
+	// prevent the current planet from loading again
 	// allow visit to any specific planet with the little bottom dots?
 
+
 	return(
-		// <div id='planet-box'>
 		<div id='planet-box'
 			style={{
 				background: 'radial-gradient(rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.3) 90%)',
 				backgroundImage: 'url('+allImages[item.name]+')',
 				backgroundSize: 'cover'
 			}}
-		> 
-			{/*<img className='planet-bg' src={yav} alt={yav}/>*/}
-		{/*<img className='planet-bg' src={allImages[item.name]} alt={item.name}/>*/}
-		{/*<img className='planet-bg' src={allImages[item.name]} alt={item.name}/>*/}
-			<h1 id='planet-title'>{item.name === 'Yavin-IV' ? 'Yavin-iv' : item.name}</h1>
+		> 	
+			{/*<h1 id='planet-title'>{item.name}</h1>*/}
+			<h1 id='planet-title'>{item.name === 'Yavin-IV' ? 'Yavin iv' : item.name}</h1>
 
 			<div className='fetched'>
 				<div className='fetched-keys'>
@@ -123,9 +126,6 @@ function PlanetBox() {
 				<Button handleClick={handleClick} id='new-planet-text' text='Visit New Planet'/>
 			</div>
 
-			{/*<a href='#1' id='tweet-quote'>
-				<img id='twitter-icon' alt='twitter icon' src={twittericon} />
-			</a>*/}
 		</div>
 	);
 }
