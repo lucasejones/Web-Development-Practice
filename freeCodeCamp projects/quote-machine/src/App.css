@@ -63,22 +63,25 @@
   min-width: 80%;
   width: 100%;
 
-/*  background: #333;*/
-  background-image: radial-gradient(rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.3) 90%), url(./Naboo.jpg);
-  background-size: cover;
+  background: #333;
+/*  background-image: radial-gradient(rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.3) 90%), url(./Naboo.jpg);*/
+/*background-image: radial-gradient(rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.3) 90%);*/
+/*  background-size: cover;*/
 
   border: 3px solid #222;
   border-radius: 6px;
   padding: 2rem;
-/*  overflow: auto;*/
 }
 
 .planet-bg {
   position: absolute;
-  opacity: 1;
+  top: 0;
+  left: 0;
+/*  opacity: 0.5;*/
   width: 100%;
-  height: auto;
-  z-index: -1;
+  height: 100%;
+  background-size: cover;
+/*  z-index: -1;*/
 }
 
 #planet-title {
@@ -103,13 +106,13 @@
 .fetched {
   display: flex;
   flex-direction: row;
-/*  justify-content: space-evenly;*/
   width: 100%;
   max-width: min-content;
   margin: 1rem;
   margin-bottom: 4rem;
   padding: 1rem;
   background: rgba(0, 0, 0, 0.6);
+  border: 2px solid #888;
   border-radius: 10px;
 }
 
