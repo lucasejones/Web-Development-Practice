@@ -10,6 +10,13 @@
   color: white;
 }
 
+.loading {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 1.6rem;
+  font-family: 'Star Jedi Rounded';
+}
+
 .app-title, .app-title-small-screen {
   margin-bottom: 2rem;
   font-family: 'Star Jedi Logo Monoline';
@@ -46,29 +53,49 @@
 
 
 #planet-box {
+  position: relative;
   display: block;
-/*  position: relative;*/
   margin-bottom: 4rem;
   min-width: 80%;
   width: 100%;
-/*  width: 50%;*/
-/*  max-width: 750px;*/
-/*  max-width: 80vw;*/
-/*  max-height: 20%;*/
-  background: #333;
-/*  text-align: center;*/
+
+/*  background: #333;*/
+  background-image: radial-gradient(rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.3) 90%), url(./Naboo.jpg);
+  background-size: cover;
+
   border: 3px solid #222;
   border-radius: 6px;
   padding: 2rem;
+/*  overflow: auto;*/
 }
 
+
+
+.planet-bg {
+  position: absolute;
+  opacity: 1;
+  width: 100%;
+  height: auto;
+  z-index: -1;
+/*  overflow: hidden;*/
+}
+
+
 #planet-title {
+  display: inline-block;
   margin: 0;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
+  margin-left: 2rem;
   text-align: center;
   font-style: italic;
   font-family: 'Star Jedi Rounded';
+  font-size: 2.5rem;
+  text-shadow: 1px 1px 5px black;
+/*  text-decoration: underline;*/
+  border-bottom: 4px solid white;
+/*  line-height: 1rem;*/
 }
+
 
 #author {
   margin-right: 4rem;
@@ -80,11 +107,13 @@
 
 #new-planet {
   margin-top: 2rem;
-  text-align: center;
+  margin-left: 1.2rem;
+/*  text-align: left;*/
 }
 
 #new-planet-text {
   font-family: 'Sterilict';
+
 }
 
 .button {
@@ -112,7 +141,12 @@
   flex-direction: row;
 /*  justify-content: space-evenly;*/
   width: 100%;
+  max-width: min-content;
   margin: 1rem;
+  margin-bottom: 4rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
 }
 
 .fetched-values{
@@ -126,9 +160,24 @@
   white-space: nowrap;
   font-family: 'Sterilict';
   font-size: 1.2rem;
+  line-height: 1.7rem;
+  text-shadow: 1px 1px 2px black;
 }
 
-@media screen and (max-width: 570px) {
+@media screen and (max-width: 950px) {
+  .fetched-values {
+    max-width: 380px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .fetched-values {
+    overflow: auto;
+  }
+}
+
+
+@media screen and (max-width: 700px) {
   .app-title {
     display: none;
   }
@@ -149,14 +198,14 @@
 
   #planet-box {
 /*    overflow: auto;*/
-
+    padding-left: 0;
   }
 
   .fetched {
     overflow: auto;
     display: flex;
-    justify-content: space-between;
-    width: 100%;
+    max-width: 92%;
+/*    width: 100%;*/
   }
 
   .fetched-item {
@@ -166,6 +215,10 @@
   .button {
     padding: 0.5rem;
     font-size: 0.65rem;
+  }
+
+  #new-planet {
+    text-align: center;
   }
 }
 
