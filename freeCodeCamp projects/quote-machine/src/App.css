@@ -17,6 +17,12 @@
   font-family: 'Star Jedi Rounded';
 }
 
+
+
+/*-----------------*/
+/*--Title Section--*/
+/*-----------------*/
+
 .app-title, .app-title-small-screen {
   margin-bottom: 2rem;
   font-family: 'Star Jedi Logo Monoline';
@@ -32,8 +38,6 @@
   display: none;
 }
 
-
-
 .rebel-symbol {
   font-family: 'Star Jedi Rounded';
   font-size: 3rem;
@@ -42,15 +46,15 @@
 
 
 
-
+/*----------------*/
+/*--Main Content--*/
+/*----------------*/
 
 .content-container {
   display: flex;
   align-items: center;
   min-width: 80%;
 }
-
-
 
 #planet-box {
   position: relative;
@@ -69,17 +73,13 @@
 /*  overflow: auto;*/
 }
 
-
-
 .planet-bg {
   position: absolute;
   opacity: 1;
   width: 100%;
   height: auto;
   z-index: -1;
-/*  overflow: hidden;*/
 }
-
 
 #planet-title {
   display: inline-block;
@@ -91,50 +91,14 @@
   font-family: 'Star Jedi Rounded';
   font-size: 2.5rem;
   text-shadow: 1px 1px 5px black;
-/*  text-decoration: underline;*/
   border-bottom: 4px solid white;
-/*  line-height: 1rem;*/
-}
-
-
-#author {
-  margin-right: 4rem;
-  text-align: right;
 }
 
 
 
-
-#new-planet {
-  margin-top: 2rem;
-  margin-left: 1.2rem;
-/*  text-align: left;*/
-}
-
-#new-planet-text {
-  font-family: 'Sterilict';
-
-}
-
-.button {
-  padding: 0.5rem;
-  font-size: 1rem;
-  font-family: 'Sterilict'
-}
-
-
-#tweet-quote {
-  display: inline-block;
-
-}
-
-#twitter-icon {
-  position: absolute;
-  left: 20px;
-  bottom: 20px;
-  transform: scale(0.8);
-}
-
+/*----------------*/
+/*--Fetched Data--*/
+/*----------------*/
 
 .fetched {
   display: flex;
@@ -162,7 +126,38 @@
   font-size: 1.2rem;
   line-height: 1.7rem;
   text-shadow: 1px 1px 2px black;
+  letter-spacing: 3px;
 }
+
+
+
+/*----------*/
+/*--Button--*/
+/*----------*/
+
+#new-planet {
+  margin-top: 2rem;
+  margin-left: 1.2rem;
+/*  text-align: left;*/
+}
+
+#new-planet-text {
+  font-family: 'Sterilict';
+
+}
+
+.button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-family: 'Sterilict';
+  letter-spacing: 2px;
+}
+
+
+
+/*-----------------*/
+/*--Media Queries--*/
+/*-----------------*/
 
 @media screen and (max-width: 950px) {
   .fetched-values {
@@ -175,7 +170,6 @@
     overflow: auto;
   }
 }
-
 
 @media screen and (max-width: 700px) {
   .app-title {
@@ -193,11 +187,9 @@
     display: flex;
     align-items: center;
     max-width: 90%;
-/*    width: min-content;*/
   }
 
   #planet-box {
-/*    overflow: auto;*/
     padding-left: 0;
   }
 
@@ -205,37 +197,22 @@
     overflow: auto;
     display: flex;
     max-width: 92%;
-/*    width: 100%;*/
   }
 
   .fetched-item {
     font-size: 0.8rem;
+    letter-spacing: 1.8px;
   }
 
   .button {
     padding: 0.5rem;
     font-size: 0.65rem;
+    letter-spacing: 1.8px;
   }
 
   #new-planet {
     text-align: center;
   }
 }
-
-
-/*.left-data {
-  position: absolute;
-  left: 15%;
-}
-
-
-.right-data {
-  text-align: left;
-}*/
-
-
-
-
-
 
 
