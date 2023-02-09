@@ -1,35 +1,42 @@
 import Button from './Button.js';
-import { useState, useEffect} from 'react';
+import { useState, useEffect, useRef} from 'react';
 
 
-function PlanetBox() {
-	const [data, setData] = useState('');
-	const [toggle, setToggle] = useState(false)
-	let url = 'https://swapi.dev/api/planets/'
+function PlanetBox(props) {
+	const initialState = 0;
+	const [count, setCount] = useState(initialState);
+	const imageRef = useRef();
+
+	// function here
+
 
 	useEffect(() => {
-		const fetchIt = async () => {
-		const res = await fetch(url);
-		var data = await res.json()
-
-		setData(data)
+		if (count != initialState) {
+			console.log('child render')
+			imageRef.current.animate(
+			{
+				opacity: [0, 1]
+			}, 800)
 		}
-
-		fetchIt()
-		console.log('re-rendered')
-	}, [])
+	}, [count])
 
 
 	function handleClick() {
-		setToggle(prevState => !prevState)
+		setCount(prevCount => prevCount + 1)
+		imageRef.current.animate(
+			{
+				opacity: [1, 0]
+			}, 800)
+
+		console.log('count:', count, 'image', imageRef.current)
 	}
 
 	 
-	if (!data) {
+	if (!props.data) {
 		return <div className='loading'>loading...</div>
 	}
   	
-	const dataResults = data.results
+	const dataResults = props.data.results
 	// console.log(dataResults)
 
 	// obtaining a random item
@@ -72,6 +79,9 @@ function PlanetBox() {
 		item.name = 'Yavin-IV' 
 	} 
 
+	// console.log('oiweklrn', allImages[item.name])
+	// imageRef = allImages[item.name]
+
 	// console.log('all images', allImages)
 	// console.log('item name', item.name)
 	// console.log('correct!', allImages[item.name])
@@ -81,22 +91,24 @@ function PlanetBox() {
 
 
 	// To-Dos:
-	// break up this big component?
-	// assign some slight and themed bg color swap depending on planet
-	// fix all the unstructured css names
-	// prevent the current planet from loading again
-	// allow visit to any specific planet with the little bottom dots?
+	// break up this big component? (4)
+	// assign some slight and themed bg color swap depending on planet (2)
+	// fix all the unstructured css names (5)
+	// prevent the current planet from loading again (1)
+	// allow visit to any specific planet with the little bottom dots? (3)
+	// create fade animation when switching planet images
+	// make sure you can't switch count for the planet swap as the state change
 
 
 	return(
 		<div id='planet-box'
+			ref={imageRef}
 			style={{
 				background: 'radial-gradient(rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.3) 90%)',
 				backgroundImage: 'url('+allImages[item.name]+')',
 				backgroundSize: 'cover'
 			}}
 		> 	
-			{/*<h1 id='planet-title'>{item.name}</h1>*/}
 			<h1 id='planet-title'>{item.name === 'Yavin-IV' ? 'Yavin iv' : item.name}</h1>
 
 			<div className='fetched'>
