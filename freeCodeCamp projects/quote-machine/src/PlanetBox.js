@@ -17,7 +17,7 @@ function PlanetBox(props) {
 	}, [planet])
 
 
-	// console.log('planet', planet)
+	console.log('planet', planet)
 	if (planet.name === 'Yavin IV') {
 		planet.name = 'Yavin-IV' 
 	} 
@@ -70,7 +70,8 @@ function PlanetBox(props) {
 	// fix all the unstructured css names (4)
 	// prevent the current planet from loading again (1)
 	// allow visit to any specific planet with the little bottom dots? (3)
-
+	// check out animation method alternatives
+	// try to get that cool gradient overlay to work
 
 
 	return(
@@ -114,5 +115,6 @@ function PlanetBox(props) {
 		</div>
 	);
 }
+
 
 export default PlanetBox;

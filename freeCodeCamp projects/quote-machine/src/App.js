@@ -29,14 +29,6 @@ function App() {
 	}
 
 
-	// if (!props.data) {
-	// 	return <div className='loading'>loading...</div>
-	// }
-
-	// function getRandom(data) {
-	// 	return data.results[Math.floor(Math.random() * props.data.results.length)]
-	// }
-
 	return (
 		<div className='App'>
 			<h1 className='app-title'>26Pl6a63n63e63t6363 E63x63p63l3o3r3er85 </h1>
