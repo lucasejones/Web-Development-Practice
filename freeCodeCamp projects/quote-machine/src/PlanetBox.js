@@ -4,9 +4,7 @@ import { useState, useEffect, useRef} from 'react';
 
 function PlanetBox(props) {
 	const initialState = 0;
-	// const [planet, setPlanet] = useState(props.data.results[Math.floor(Math.random() * props.data.results.length)]) <-- without func as props
 	const [planet, setPlanet] = useState(props.getRandomPlanet(props.data))
-	// const [planet, setPlanet] = useState(props.data.results[0]) <--without random beginning
 	const imageRef = useRef();
 
 
@@ -19,20 +17,15 @@ function PlanetBox(props) {
 	}, [planet])
 
 
-	console.log('planet', planet)
-
-	// the space in Yavin IV was causing strange behavior in which the image was correctly indexed from the allImages object, but was not displaying, despite all the other data doing so. Modifying the image filename to swap the space for a hyphen and changing the fetched item name resolves the issue, though surely there's a more robust approach with larger datasets.
+	// console.log('planet', planet)
 	if (planet.name === 'Yavin IV') {
 		planet.name = 'Yavin-IV' 
 	} 
 
 
-	
-
-
 	function getPropertiesAndValues(planetObject) {
-
 		// preparing the arrays that will be displayed
+
 		var properties = []
 		var values = []
 		Object.keys(planetObject).slice(0, -5).map((key, index) => {
@@ -50,6 +43,7 @@ function PlanetBox(props) {
 	function imageImport(r) {
 		// creating a custom context using require.context
 		// reference here: https://webpack.js.org/guides/dependency-management/#require-context
+
 		let images = {}
 		r.keys().forEach((item, index) => {
 			images[item.replace('./', '').split('.')[0]] = r(item);
@@ -72,13 +66,11 @@ function PlanetBox(props) {
 
 	
 	// To-Dos:
-	// break up this big component? (4)
 	// assign some slight and themed bg color swap depending on planet (2)
-	// fix all the unstructured css names (5)
+	// fix all the unstructured css names (4)
 	// prevent the current planet from loading again (1)
 	// allow visit to any specific planet with the little bottom dots? (3)
-	// create fade animation when switching planet images
-	// make sure you can't switch count for the planet swap as the state change
+
 
 
 	return(
