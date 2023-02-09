@@ -4,33 +4,30 @@ import { useState, useEffect, useRef} from 'react';
 
 function PlanetBox(props) {
 	const initialState = 0;
-	const [count, setCount] = useState(initialState);
+	// const [planet, setPlanet] = useState(props.data.results[Math.floor(Math.random() * props.data.results.length)]) <-- without func as props
+	const [planet, setPlanet] = useState(props.getRandomPlanet(props.data))
+	// const [planet, setPlanet] = useState(props.data.results[0]) <--without random beginning
 	const imageRef = useRef();
 
 
 	useEffect(() => {
-		if (count != initialState) {
-			console.log('child render')
-			imageRef.current.animate(
-			{
-				opacity: [0, 1]
-			}, 800)
-		}
-	}, [count])
+		console.log('child render')
+		imageRef.current.animate(
+		{
+			opacity: [0, 1]
+		}, 800)
+	}, [planet])
 
 
-	if (!props.data) {
-		return <div className='loading'>loading...</div>
-	}
+	console.log('planet', planet)
+
+	// the space in Yavin IV was causing strange behavior in which the image was correctly indexed from the allImages object, but was not displaying, despite all the other data doing so. Modifying the image filename to swap the space for a hyphen and changing the fetched item name resolves the issue, though surely there's a more robust approach with larger datasets.
+	if (planet.name === 'Yavin IV') {
+		planet.name = 'Yavin-IV' 
+	} 
 
 
-	function getRandomPlanet() {
-		const dataResults = props.data.results
-
-		var item = dataResults[Math.floor(Math.random() * dataResults.length)];
-
-		return item
-	}
+	
 
 
 	function getPropertiesAndValues(planetObject) {
@@ -50,17 +47,6 @@ function PlanetBox(props) {
 	}
 
 
-	var randomPlanet = getRandomPlanet()
-
-	// the space in Yavin IV was causing strange behavior in which the image was correctly indexed from the allImages object, but was not displaying, despite all the other data doing so. Modifying the image filename to swap the space for a hyphen and changing the fetched item name resolves the issue, though surely there's a more robust approach with larger datasets.
-	if (randomPlanet.name === 'Yavin IV') {
-		randomPlanet.name = 'Yavin-IV' 
-	} 
-
-	const [propertiesArr, valuesArr] = getPropertiesAndValues(randomPlanet)
-	// console.log(propertiesArr, valuesArr)
-
-
 	function imageImport(r) {
 		// creating a custom context using require.context
 		// reference here: https://webpack.js.org/guides/dependency-management/#require-context
@@ -71,26 +57,20 @@ function PlanetBox(props) {
 		return images
 	}
      
-	const allImages = imageImport(require.context('./images/', false))
-
-	
-
-
 
 	function handleClick() {
-		setCount(prevCount => prevCount + 1)
+		setPlanet(props.getRandomPlanet())
 		imageRef.current.animate(
 			{
 				opacity: [1, 0]
 			}, 800)
-
-		console.log('count:', count, 'image', imageRef.current)
 	}
 
 
+	const allImages = imageImport(require.context('./images/', false))
+	const [propertiesArr, valuesArr] = getPropertiesAndValues(planet)
+
 	
-
-
 	// To-Dos:
 	// break up this big component? (4)
 	// assign some slight and themed bg color swap depending on planet (2)
@@ -106,11 +86,11 @@ function PlanetBox(props) {
 			ref={imageRef}
 			style={{
 				background: 'radial-gradient(rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.3) 90%)',
-				backgroundImage: 'url('+allImages[randomPlanet.name]+')',
+				backgroundImage: 'url('+allImages[planet.name]+')',
 				backgroundSize: 'cover'
 			}}
 		> 	
-			<h1 id='planet-title'>{randomPlanet.name === 'Yavin-IV' ? 'Yavin-iv' : randomPlanet.name}</h1>
+			<h1 id='planet-title'>{planet.name === 'Yavin-IV' ? 'Yavin-iv' : planet.name}</h1>
 
 			<div className='fetched'>
 				<div className='fetched-keys'>
