@@ -7,8 +7,6 @@ function PlanetBox(props) {
 	const [count, setCount] = useState(initialState);
 	const imageRef = useRef();
 
-	// function here
-
 
 	useEffect(() => {
 		if (count != initialState) {
@@ -21,6 +19,64 @@ function PlanetBox(props) {
 	}, [count])
 
 
+	if (!props.data) {
+		return <div className='loading'>loading...</div>
+	}
+
+
+	function getRandomPlanet() {
+		const dataResults = props.data.results
+
+		var item = dataResults[Math.floor(Math.random() * dataResults.length)];
+
+		return item
+	}
+
+
+	function getPropertiesAndValues(planetObject) {
+
+		// preparing the arrays that will be displayed
+		var properties = []
+		var values = []
+		Object.keys(planetObject).slice(0, -5).map((key, index) => {
+			properties.push(key);
+			values.push(planetObject[key])
+		})
+
+		for (let i = 0; i < properties.length; i++) {
+			properties[i] = properties[i].replace(/_/g, ' ');
+		}
+		return [properties, values]
+	}
+
+
+	var randomPlanet = getRandomPlanet()
+
+	// the space in Yavin IV was causing strange behavior in which the image was correctly indexed from the allImages object, but was not displaying, despite all the other data doing so. Modifying the image filename to swap the space for a hyphen and changing the fetched item name resolves the issue, though surely there's a more robust approach with larger datasets.
+	if (randomPlanet.name === 'Yavin IV') {
+		randomPlanet.name = 'Yavin-IV' 
+	} 
+
+	const [propertiesArr, valuesArr] = getPropertiesAndValues(randomPlanet)
+	// console.log(propertiesArr, valuesArr)
+
+
+	function imageImport(r) {
+		// creating a custom context using require.context
+		// reference here: https://webpack.js.org/guides/dependency-management/#require-context
+		let images = {}
+		r.keys().forEach((item, index) => {
+			images[item.replace('./', '').split('.')[0]] = r(item);
+		});
+		return images
+	}
+     
+	const allImages = imageImport(require.context('./images/', false))
+
+	
+
+
+
 	function handleClick() {
 		setCount(prevCount => prevCount + 1)
 		imageRef.current.animate(
@@ -31,63 +87,8 @@ function PlanetBox(props) {
 		console.log('count:', count, 'image', imageRef.current)
 	}
 
-	 
-	if (!props.data) {
-		return <div className='loading'>loading...</div>
-	}
-  	
-	const dataResults = props.data.results
-	// console.log(dataResults)
 
-	// obtaining a random item
-	var item = dataResults[Math.floor(Math.random() * dataResults.length)];
-	console.log(item)
-
-
-	// preparing the arrays that will be displayed
-	var keys = []
-	var values = []
-	Object.keys(item).slice(0, -5).map((key, index) => {
-		keys.push(key);
-		values.push(item[key])
-	})
-
-	for (let i = 0; i < keys.length; i++) {
-		keys[i] = keys[i].replace(/_/g, ' ');
-	}
-
-	// console.log('keys', keys)
-	// console.log('vals', values)
-
-
-
-
-	// creating a custom context using require.context
-	// reference here: https://webpack.js.org/guides/dependency-management/#require-context
-
-	function imageImport(r) {
-		let images = {}
-		r.keys().forEach((item, index) => {
-			images[item.replace('./', '').split('.')[0]] = r(item);
-		});
-		return images
-	}
-     
-	const allImages = imageImport(require.context('./images/', false))
-
-	if (item.name === 'Yavin IV') {
-		item.name = 'Yavin-IV' 
-	} 
-
-	// console.log('oiweklrn', allImages[item.name])
-	// imageRef = allImages[item.name]
-
-	// console.log('all images', allImages)
-	// console.log('item name', item.name)
-	// console.log('correct!', allImages[item.name])
-    // console.log('yavin?', allImages['Yavin-IV'])
-
-	// the space in Yavin IV was causing strange behavior in which the image was correctly indexed from the allImages object, but was not displaying, despite all the other data doing so. Modifying the image filename to swap the space for a hyphen and changing the fetched item name resolves the issue, though surely there's a more robust approach with larger datasets.
+	
 
 
 	// To-Dos:
@@ -105,15 +106,15 @@ function PlanetBox(props) {
 			ref={imageRef}
 			style={{
 				background: 'radial-gradient(rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.3) 90%)',
-				backgroundImage: 'url('+allImages[item.name]+')',
+				backgroundImage: 'url('+allImages[randomPlanet.name]+')',
 				backgroundSize: 'cover'
 			}}
 		> 	
-			<h1 id='planet-title'>{item.name === 'Yavin-IV' ? 'Yavin iv' : item.name}</h1>
+			<h1 id='planet-title'>{randomPlanet.name === 'Yavin-IV' ? 'Yavin-iv' : randomPlanet.name}</h1>
 
 			<div className='fetched'>
 				<div className='fetched-keys'>
-					{keys.map(i => {
+					{propertiesArr.map(i => {
 						return(
 							<li className='fetched-item' key={i}>{i}:</li>
 						)
@@ -123,7 +124,7 @@ function PlanetBox(props) {
 					}
 				</div>
 				<div className='fetched-values'>
-					{values.map(i => {
+					{valuesArr.map(i => {
 						return(
 							<li className='fetched-item' key={i}>{i}</li>
 						)
