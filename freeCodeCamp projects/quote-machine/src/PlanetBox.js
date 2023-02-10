@@ -3,7 +3,6 @@ import { useState, useEffect, useRef} from 'react';
 
 
 function PlanetBox(props) {
-	const initialState = 0;
 	const [planet, setPlanet] = useState(props.getRandomPlanet(props.data))
 	const imageRef = useRef();
 
