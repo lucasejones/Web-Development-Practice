@@ -12,7 +12,7 @@ function App() {
 		const res = await fetch(url);
 		var data = await res.json()
 
-		setData(data)
+		setData(data.results)
 		}
 
 		fetchIt()
@@ -21,13 +21,20 @@ function App() {
 	}, [])
 
 
-	function getRandomPlanet() {
-		const dataResults = data.results
-
-		var item = dataResults[Math.floor(Math.random() * dataResults.length)];
-
-		return item
+	
+	function getRandomPlanet(remainingPlanets) {
+		const selectedPlanet = remainingPlanets[Math.floor(Math.random() * remainingPlanets.length)]
+		// console.log('selected', selectedPlanet)
+		return selectedPlanet
 	}
+
+	function updateRemainingPlanets(planetsArray, currentPlanet) {
+		const index = planetsArray.indexOf(currentPlanet)
+		planetsArray.splice(index, 1)
+		// console.log('remaining planets', planetsArray)
+		return planetsArray
+	}
+
 
 
 	return (
@@ -38,7 +45,11 @@ function App() {
 					!data ? 
 						<div className='loading'>loading...</div> 
 						: 
-					<PlanetBox data={data} getRandomPlanet={getRandomPlanet}/>
+					<PlanetBox 
+						data={data} 
+						getRandomPlanet={getRandomPlanet}
+						updateRemainingPlanets={updateRemainingPlanets}
+					/>
 				}	
 			</div>
 		</div>

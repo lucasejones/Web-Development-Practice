@@ -1,6 +1,10 @@
 import Button from './Button.js';
 import { useState, useEffect, useRef} from 'react';
 
+// pass into child all data, which can be used to create an array of planet items.
+// the child will pull a random item from that list, and display it
+// when this happens, the planet item should be removed from the list.
+// once the list is emptied, the list should be repopulated with the original planet list contents.
 
 function PlanetBox(props) {
 	const [planet, setPlanet] = useState(props.getRandomPlanet(props.data))
@@ -16,7 +20,14 @@ function PlanetBox(props) {
 	}, [planet])
 
 
+	let planetsArr = props.data
+	props.updateRemainingPlanets(planetsArr, planet)
+
+
+	console.log('all_remaining', planetsArr)
 	console.log('planet', planet)
+
+
 	if (planet.name === 'Yavin IV') {
 		planet.name = 'Yavin-IV' 
 	} 
@@ -52,7 +63,7 @@ function PlanetBox(props) {
      
 
 	function handleClick() {
-		setPlanet(props.getRandomPlanet())
+		setPlanet(props.getRandomPlanet(planetsArr))
 		imageRef.current.animate(
 			{
 				opacity: [1, 0]
@@ -65,12 +76,17 @@ function PlanetBox(props) {
 
 	
 	// To-Dos:
-	// assign some slight and themed bg color swap depending on planet (2)
-	// fix all the unstructured css names (4)
 	// prevent the current planet from loading again (1)
-	// allow visit to any specific planet with the little bottom dots? (3)
-	// check out animation method alternatives
-	// try to get that cool gradient overlay to work
+
+	// make a component that allows navigation to a specific planet that essentially is a horizontal list of navigable planet names above the planet box. (2)
+
+	// assign some slight and themed bg color swap depending on planet (3)
+	// check out animation method alternatives (4)
+
+	// try to get that cool gradient overlay to work (5)
+
+	// fix all the unstructured css names (6)
+	
 
 
 	return(
