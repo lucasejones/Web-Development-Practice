@@ -14,6 +14,7 @@ function App() {
 
 		setData(data.results)
 		}
+		// console.log(data)
 
 		fetchIt()
 

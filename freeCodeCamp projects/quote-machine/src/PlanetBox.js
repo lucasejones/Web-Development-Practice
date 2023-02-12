@@ -2,19 +2,12 @@ import Button from './Button.js';
 import { useState, useEffect, useRef } from 'react';
 
 
-// identify the different visual states:
-	// 1. loading (successful fetch should switch to the !loading state)
-	// 2. failed load (unsuccessful fetch should switch to loadFailed=true)
-	// 3. show the container box (containerShow all the time if loaded)
-	// 4. specific image state: (clicking the random planet button should switch the image state off for the current one, and image state on for the new one
-	// 4. 
-
-
 
 function PlanetBox(props) {
 	const [index, setIndex] = useState(0)
 	const imageRef = useRef();
-	const indexArrRef = useRef(Array.from(Array(props.data.length).keys()))
+	let arrFill = Array.from(Array(props.data.length - 1)).map((e, i) => i + 1)
+	const indexArrRef = useRef(arrFill)
 
 	useEffect(() => {
 		console.log('child render')
@@ -26,7 +19,7 @@ function PlanetBox(props) {
 
 	}, [index])
 
-
+	
 	function getNewRandomIndex(totalIndices, currentIndex) {
 		// recursive function that ensures a unique index is generated 
 
@@ -39,9 +32,25 @@ function PlanetBox(props) {
 		return newIndex
 	}
 
-	function indexFromLessening(indexArr) {
-		let newIndex = Math.floor(Math.random() * indexArr.length)
-		indexArr.splice(newIndex, 1)
+
+	function indexFromLessening(indexArr, currentIndex) {
+		// returns the index which will be used as the new state on click.
+
+		// there's a recursive block which ensures that no duplicate value can be given when the array is restored from being emptied 
+		//ex: (if 4 was the final value to empty out, 4 will not be called first when the array is re-filled.)
+
+		// getting the value from the array of remaining indices
+		let newIndex = indexArr[Math.floor(Math.random() * indexArr.length)]
+		
+		if (newIndex === currentIndex) {
+			// console.log('current index rerun', currentIndex, 'newIndex rerun', newIndex)
+			newIndex = indexFromLessening(indexArr, currentIndex)
+		}
+		// console.log('current index', currentIndex, 'newIndex', newIndex)
+
+		// eliminating that value from the array of remaining indices
+		indexArr.splice(indexArr.indexOf(newIndex), 1)
+		// console.log('newindexinfunc', newIndex, indexArr.indexOf(newIndex))
 
 		return newIndex
 	}
@@ -82,8 +91,8 @@ function PlanetBox(props) {
 		if (indexArrRef.current.length == 0) {
 			indexArrRef.current = Array.from(Array(10).keys())
 		}
-		
-		let newran = indexFromLessening(indexArrRef.current)
+
+		let newran = indexFromLessening(indexArrRef.current, index)
 		setIndex(newran)
 
 		imageRef.current.animate(
@@ -92,10 +101,12 @@ function PlanetBox(props) {
 			}, 800)
 	}
 
+	console.log(props.data)
 	console.log(indexArrRef.current)
+	console.log('current index', index)
 
 	let planet = props.data[index]
-	console.log(planet)
+	// console.log(planet)
 
 	if (planet.name === 'Yavin IV') {
 		planet.name = 'Yavin-IV' 
