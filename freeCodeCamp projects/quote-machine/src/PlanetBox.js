@@ -14,7 +14,7 @@ import { useState, useEffect, useRef } from 'react';
 function PlanetBox(props) {
 	const [index, setIndex] = useState(0)
 	const imageRef = useRef();
-	// let indexArr = Array.from(Array(props.data.length).keys())
+	const indexArrRef = useRef(Array.from(Array(props.data.length).keys()))
 
 	useEffect(() => {
 		console.log('child render')
@@ -36,6 +36,13 @@ function PlanetBox(props) {
 			newIndex = getNewRandomIndex(totalIndices, currentIndex)
 		}
 		// console.log('current index', currentIndex, 'newIndex', newIndex)
+		return newIndex
+	}
+
+	function indexFromLessening(indexArr) {
+		let newIndex = Math.floor(Math.random() * indexArr.length)
+		indexArr.splice(newIndex, 1)
+
 		return newIndex
 	}
 
@@ -70,8 +77,14 @@ function PlanetBox(props) {
      
 
 	function handleClick() {
-		let newRandomIndex = getNewRandomIndex(props.data.length, index)
-		setIndex(newRandomIndex)
+		// let newRandomIndex = getNewRandomIndex(props.data.length, index)
+		// setIndex(newRandomIndex)
+		if (indexArrRef.current.length == 0) {
+			indexArrRef.current = Array.from(Array(10).keys())
+		}
+		
+		let newran = indexFromLessening(indexArrRef.current)
+		setIndex(newran)
 
 		imageRef.current.animate(
 			{
@@ -79,7 +92,7 @@ function PlanetBox(props) {
 			}, 800)
 	}
 
-	// console.log(indexArr)
+	console.log(indexArrRef.current)
 
 	let planet = props.data[index]
 	console.log(planet)
