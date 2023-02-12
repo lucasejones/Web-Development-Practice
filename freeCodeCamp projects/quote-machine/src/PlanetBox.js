@@ -19,7 +19,7 @@ function PlanetBox(props) {
 
 	}, [index])
 
-	
+
 	function getNewRandomIndex(totalIndices, currentIndex) {
 		// recursive function that ensures a unique index is generated 
 
@@ -123,16 +123,16 @@ function PlanetBox(props) {
 
 	
 	// To-Dos:
-	// prevent the current planet from loading again (1)
 
-	// make a component that allows navigation to a specific planet that essentially is a horizontal list of navigable planet names above the planet box. (2)
+	// make a component that allows navigation to a specific planet that essentially is a horizontal list of navigable planet names above the planet box. (1)
 
-	// assign some slight and themed bg color swap depending on planet (3)
-	// check out animation method alternatives (4)
+	// assign some slight and themed bg color swap depending on planet (4)
 
-	// try to get that cool gradient overlay to work (5)
+	// check out animation method alternatives (2)
 
-	// fix all the unstructured css names (6)
+	// try to get that cool gradient overlay to work (3)
+
+	// fix all the unstructured css names (5)
 	
 
 
