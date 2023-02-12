@@ -14,24 +14,12 @@ function App() {
 
 		setData(data.results)
 		}
-		// console.log(data)
+
 
 		fetchIt()
 
 		console.log('initial render')
 	}, [])
-	
-
-	// function updateRemainingPlanets(planetsArray, currentPlanet) {
-	// 	const index = planetsArray.indexOf(currentPlanet)
-	// 	planetsArray.splice(index, 1)
-	// 	// console.log('remaining planets', planetsArray)
-	// 	return planetsArray
-	// }
-
-	// function restoreRemainingPlanets(previouslyEmpty, full) {
-	// 	return previouslyEmpty.concat(full)
-	// }
 
 
 	return (

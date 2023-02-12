@@ -2,11 +2,10 @@ import Button from './Button.js';
 import { useState, useEffect, useRef } from 'react';
 
 
-
 function PlanetBox(props) {
 	const [index, setIndex] = useState(0)
 	const imageRef = useRef();
-	let arrFill = Array.from(Array(props.data.length - 1)).map((e, i) => i + 1)
+	const arrFill = Array.from(Array(props.data.length - 1)).map((e, i) => i + 1)
 	const indexArrRef = useRef(arrFill)
 
 	useEffect(() => {
@@ -18,19 +17,6 @@ function PlanetBox(props) {
 		}, 800)
 
 	}, [index])
-
-
-	function getNewRandomIndex(totalIndices, currentIndex) {
-		// recursive function that ensures a unique index is generated 
-
-		let newIndex = Math.floor(Math.random() * (totalIndices - 1))
-		if (newIndex === currentIndex) {
-			// console.log('current index rerun', currentIndex, 'newIndex rerun', newIndex)
-			newIndex = getNewRandomIndex(totalIndices, currentIndex)
-		}
-		// console.log('current index', currentIndex, 'newIndex', newIndex)
-		return newIndex
-	}
 
 
 	function indexFromLessening(indexArr, currentIndex) {
@@ -101,9 +87,9 @@ function PlanetBox(props) {
 			}, 800)
 	}
 
-	console.log(props.data)
-	console.log(indexArrRef.current)
-	console.log('current index', index)
+	// console.log(props.data)
+	// console.log(indexArrRef.current)
+	// console.log('current index', index)
 
 	let planet = props.data[index]
 	// console.log(planet)
@@ -123,6 +109,8 @@ function PlanetBox(props) {
 
 	
 	// To-Dos:
+
+	// get planet underline to be text shadowed too
 
 	// make a component that allows navigation to a specific planet that essentially is a horizontal list of navigable planet names above the planet box. (1)
 

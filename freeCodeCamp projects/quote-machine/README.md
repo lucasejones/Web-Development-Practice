@@ -1,3 +1,14 @@
+# Star Wars Planet Explorer
+Visit all your favorite planets from Star Wars! Admire their enchanting vistas while you learn about things like the orbital period, climate, and gravity of each planet in this navigable experience. 
+
+## Planet Randomization Concept: 
+Not sure where you'd like to fly to next? By clicking the button, you can randomly visit one! And if you use only the random button, there's some neat behavior under the hood. Here's how it works: 
+
+Each of the 10 planets is visited exactly once before you can visit it again, in the form of another set of 10 randomly visitable planets. I wanted to do this with only 1 fetching of the data, and without beginning a new set of 10 on the same planet the previous set of 10 ended on. 
+
+This “whirlwind tour” ensures as dynamic a viewing experience as possible. It’s "controlled randomization”; each given planet visit is randomized, but within boundaries that eliminate duplicate visits and optimizes for new experiences, even with limited use.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
