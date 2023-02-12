@@ -2,10 +2,10 @@ import Button from './Button.js';
 import { useState, useEffect, useRef } from 'react';
 
 
-function PlanetBox(props) {
+function PlanetBox({ data }) {
 	const [index, setIndex] = useState(0)
 	const imageRef = useRef();
-	const arrFill = Array.from(Array(props.data.length - 1)).map((e, i) => i + 1)
+	const arrFill = Array.from(Array(data.length - 1)).map((e, i) => i + 1)
 	const indexArrRef = useRef(arrFill)
 
 	useEffect(() => {
@@ -15,8 +15,7 @@ function PlanetBox(props) {
 		{
 			opacity: [0, 1]
 		}, 800)
-
-	}, [index])
+	})
 
 
 	function indexFromLessening(indexArr, currentIndex) {
@@ -87,11 +86,11 @@ function PlanetBox(props) {
 			}, 800)
 	}
 
-	// console.log(props.data)
-	// console.log(indexArrRef.current)
-	// console.log('current index', index)
+	console.log(data)
+	console.log(indexArrRef.current)
+	console.log('current index', index)
 
-	let planet = props.data[index]
+	let planet = data[index]
 	// console.log(planet)
 
 	if (planet.name === 'Yavin IV') {
@@ -110,15 +109,19 @@ function PlanetBox(props) {
 	
 	// To-Dos:
 
-	// get planet underline to be text shadowed too
+	// understand strict mode running twice in useeffect
+		// read 'thinking in react'
+		// understand the triggering animation in useffect and how that relates to this idea from useEffect reference: If you’re not trying to synchronize with some external system, you probably don’t need an Effect. (links to "you might not need an effect")
+
 
 	// make a component that allows navigation to a specific planet that essentially is a horizontal list of navigable planet names above the planet box. (1)
 
-	// assign some slight and themed bg color swap depending on planet (4)
-
+	// get planet underline to be text shadowed too (1.5)
 	// check out animation method alternatives (2)
 
 	// try to get that cool gradient overlay to work (3)
+
+	// assign some slight and themed bg color swap depending on planet (4)
 
 	// fix all the unstructured css names (5)
 	

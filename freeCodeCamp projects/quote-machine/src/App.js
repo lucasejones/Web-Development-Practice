@@ -4,21 +4,21 @@ import PlanetBox from './PlanetBox.js';
 import { useState, useEffect} from 'react';
 
 function App() {
-	const [data, setData] = useState('');
+	const [data, setData] = useState(null);
 	let url = 'https://swapi.dev/api/planets/'
 
 	useEffect(() => {
-		const fetchIt = async () => {
-		const res = await fetch(url);
-		var data = await res.json()
+		console.log('initial render')
 
-		setData(data.results)
+		async function fetchData() {
+			const res = await fetch(url);
+			var data = await res.json()
+			
+			setData(data.results)
+			
 		}
 
-
-		fetchIt()
-
-		console.log('initial render')
+		fetchData();
 	}, [])
 
 
