@@ -1,36 +1,47 @@
 import Button from './Button.js';
-import { useState, useEffect, useRef} from 'react';
+import { useState, useEffect, useRef } from 'react';
 
-// pass into child all data, which can be used to create an array of planet items.
-// the child will pull a random item from that list, and display it
-// when this happens, the planet item should be removed from the list.
-// once the list is emptied, the list should be repopulated with the original planet list contents.
+// if I'm reading this right, the child receiving the props is not allowed to change those props within itself. only the parent can change the props.
+// maybe by taking care of the refilling logic in the parent component, I can work through this.
 
-function PlanetBox(props) {
-	const [planet, setPlanet] = useState(props.getRandomPlanet(props.data))
+// try moving all the logic up to the parent component and see what you can get away with here. I don't think having 1,000 references to props is the right way to be doing things.
+
+//SOLUTION: 
+// you shouldn't be trying to change the props values in the child component; focus only on displaying them in the child component. change them in the parent component.
+// the stack overflow here is useful:
+// https://stackoverflow.com/questions/26089532/why-cant-i-update-props-in-react-js
+
+// don't update the remaning planets with that function because that's essentially trying to change the props. instead just use the getRandom one and generate a fake array made up of 10 indices; map each index to that new array and delete it as each picture is shown. so basically what you were doing before, but with a fake array instead of one from props...?
+
+// If I decide not to do randomization, and instead cycle through the planets in order, each current planet shown corresponding to a highlighted title of the planet above the box, this would be a more straightforward project. 
+// Of course, it would still be nice to be able to click on the names OR navigate via the random button...
+
+
+// identify the different visual states:
+	// 1. loading (successful fetch should switch to the !loading state)
+	// 2. failed load (unsuccessful fetch should switch to loadFailed=true)
+	// 3. show the container box (containerShow all the time if loaded)
+	// 4. specific image state: (clicking the random planet button should switch the image state off for the current one, and image state on for the new one
+	// 4. 
+
+
+
+function PlanetBox({data, ...props}) {
+	const [planet, setPlanet] = useState(data[props.index])
+	// const [isEmpty, setIsEmpty] = useState(false)
 	const imageRef = useRef();
+
 
 
 	useEffect(() => {
 		console.log('child render')
+
 		imageRef.current.animate(
 		{
 			opacity: [0, 1]
 		}, 800)
+
 	}, [planet])
-
-
-	let planetsArr = props.data
-	props.updateRemainingPlanets(planetsArr, planet)
-
-
-	console.log('all_remaining', planetsArr)
-	console.log('planet', planet)
-
-
-	if (planet.name === 'Yavin IV') {
-		planet.name = 'Yavin-IV' 
-	} 
 
 
 	function getPropertiesAndValues(planetObject) {
@@ -49,6 +60,8 @@ function PlanetBox(props) {
 		return [properties, values]
 	}
 
+	
+
 
 	function imageImport(r) {
 		// creating a custom context using require.context
@@ -63,7 +76,12 @@ function PlanetBox(props) {
      
 
 	function handleClick() {
-		setPlanet(props.getRandomPlanet(planetsArr))
+		
+		// setPlanet(props.getRandomPlanet(data))
+		setPlanet(data[props.getRandomIndex(data.length)])
+		console.log('planet', planet)
+
+
 		imageRef.current.animate(
 			{
 				opacity: [1, 0]
@@ -71,8 +89,51 @@ function PlanetBox(props) {
 	}
 
 
-	const allImages = imageImport(require.context('./images/', false))
+	
+
+	// function getRandomPlanetByIndex(remainingPlanets, randomIndex) {
+	// 	return remainingPlanets[randomIndex]
+	// }
+
+	// const index = props.getRandomIndex(data.length)
+	console.log('index', props.index)
+	console.log('data[index]', data[props.index])
+		
+
+	
+	// console.log(props.dynamicArr)
+
+	// console.log('props.data before', props.data)
+	// console.log('props.dynamicArr before', props.dynamicArr)
+
+	// props.updateRemainingPlanets(props.data, planet)
+
+	// console.log('props.data after', props.data)
+	// console.log('props.dynamicArr after', props.dynamicArr)
+
+
+	if (planet.name === 'Yavin IV') {
+		planet.name = 'Yavin-IV' 
+	} 
+
+
+	// if (props.dynamicArr.length == 0) {
+	// 	console.log('empty!')
+	// 	props.dynamicArr = props.dynamicArr.concat(props.data)
+
+	// 	// dynamicArr.current.concat(props.data)
+	// 	// setPlanet(props.getRandomPlanet(.current))
+
+	// 	console.log('restored remaining planets', props.dynamicArr)
+	// }
+
+
 	const [propertiesArr, valuesArr] = getPropertiesAndValues(planet)
+	const allImages = imageImport(require.context('./images/', false))
+	
+
+
+
 
 	
 	// To-Dos:
