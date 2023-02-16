@@ -101,8 +101,6 @@ function PlanetBox({ data }) {
 	const allImages = imageImport(require.context('./images/', false))
 
 
-	
-
 
 
 
@@ -119,23 +117,20 @@ function PlanetBox({ data }) {
 	// get planet underline to be text shadowed too (1.5)
 	// check out animation method alternatives (2)
 
-	// try to get that cool gradient overlay to work (3)
+	// assign some slight and themed bg color swap depending on planet (3)
 
-	// assign some slight and themed bg color swap depending on planet (4)
-
-	// fix all the unstructured css names (5)
+	// fix all the unstructured css names (4)
 	
 
 
 	return(
-		<div id='planet-box'
+		<div className='planet-box'
 			ref={imageRef}
-			style={{
-				background: 'radial-gradient(rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.3) 90%)',
-				backgroundImage: 'url('+allImages[planet.name]+')',
-				backgroundSize: 'cover'
-			}}
 		> 	
+			<img 
+				src={allImages[planet.name]} 
+				alt={'a depiction of ' + allImages[planet.name]}
+			/>
 			<h1 id='planet-title'>{planet.name === 'Yavin-IV' ? 'Yavin-iv' : planet.name}</h1>
 
 			<div className='fetched'>
