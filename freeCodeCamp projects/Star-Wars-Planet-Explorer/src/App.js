@@ -3,7 +3,7 @@ import Header from './Header.js'
 import PlanetBox from './PlanetBox.js';
 import { useState, useEffect} from 'react';
 
-function App() {
+export default function App() {
 	const [data, setData] = useState(null);
 	let url = 'https://swapi.dev/api/planets/'
 
@@ -36,7 +36,3 @@ function App() {
 		</div>
 	);
 }
-
-export default App;
-
-

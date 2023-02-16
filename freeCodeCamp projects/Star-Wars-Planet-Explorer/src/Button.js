@@ -1,14 +1,12 @@
-function Button(props) {
+export default function Button({text, handleClick}) {
 	return(
 		<div>
 			<button 
 				className='button'
-				onClick={props.handleClick}
+				onClick={handleClick}
 			>
-			{props.text}
+			{text}
 			</button>
 		</div>
 	);
 }
-
-export default Button;

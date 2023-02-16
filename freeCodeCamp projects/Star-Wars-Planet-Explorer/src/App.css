@@ -97,7 +97,7 @@ img {
   left: 0;
 }
 
-#planet-title {
+.planet-title {
   display: inline-block;
   margin: 0;
   margin-bottom: 2rem;
@@ -109,6 +109,7 @@ img {
   text-shadow: 1px 1px 5px black;
   border-bottom: 4px solid white;
 }
+
 
 
 
@@ -140,7 +141,7 @@ img {
   white-space: nowrap;
   font-family: 'Sterilict';
   font-size: 1.2rem;
-  line-height: 1.7rem;
+  line-height: 1.9rem;
   text-shadow: 1px 1px 2px black;
   letter-spacing: 3px;
 }
