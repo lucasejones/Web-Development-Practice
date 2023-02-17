@@ -1,12 +1,9 @@
-export default function WelcomeBox({ onWelcomeClose }) {
+export default function WelcomeBox({ onCloseWelcome }) {
 	return(
-		<div 
-			className='welcome-box'
-			onClick={onWelcomeClose}
-		>
+		<div className='welcome-box'>
 			<span 
 				className='close-welcome'
-				onClick={onWelcomeClose}
+				onClick={onCloseWelcome}
 			>
 				X
 			</span>

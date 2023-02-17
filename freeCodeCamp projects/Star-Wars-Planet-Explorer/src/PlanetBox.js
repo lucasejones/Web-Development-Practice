@@ -64,38 +64,8 @@ export default function PlanetBox({ data }) {
 	// To-Dos:
 		// understand the triggering animation in useffect and how that relates to this idea from useEffect reference: If you’re not trying to synchronize with some external system, you probably don’t need an Effect. (links to "you might not need an effect")
 
-	// order of experience:
-		// the page loads
-		// the title, symbol, and a visual cue to click the symbol are shown
-		// the welcome box and planet list with random button appear
-		// clicking the symbol at any time from now on will hide the welcome box
-		// clicking either an item from the planetlist or the button will display the planetbox underneath
-
-	//I thought it would be more interactive to have the user click the rebel symbol to reveal some instructions and planet options. From there, when they click, they will see whatever planet matches their selection. Also, from then on, by clicking the same rebel symbol button, it will hide/unhide the welcome box but leave the planet list and planet box.
-
-
-
-
-
-
-	// click once to display welcome box and list /done
-	// click again to hide/unhide the welcome box as many times as you like, but keep planet list and random button (and planetbox if shown) (this is not working currently)
-	
-	// click a planet from list or from the random button to show planetbox
-
-
-
-
-
-
-
 	// make a component that allows navigation to a specific planet that essentially is a horizontal list of navigable planet names above the planet box. (1)
-
-	// hide the planetlist and planetbox until the user clicks the rebel symbol
-		// add some visual to encourage this action
-		// first, just display the welcome box and the list
-		// give an option to roll up the welcome box or roll down at any time
-		// when they click a planet from the list (or the random planet button which will also be moved up there) the planetbox will appear and function normally from there.
+		// lift state up into a new component that will contain PlanetsList and PlanetBox. this will contain a lot of the logic currently in planetbox, because PlanetsList also needs access to this.
 
 	// check out animation method alternatives (2)
 
@@ -108,7 +78,6 @@ export default function PlanetBox({ data }) {
 	return(
 		<div className='planet-box'
 			ref={imageRef}
-			// onClick={onClick}
 		> 	
 			<img 
 				src={allImages[planet.name]} 

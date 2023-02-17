@@ -8,6 +8,7 @@ import { useState, useEffect} from 'react';
 export default function App() {
 	const [data, setData] = useState(null);
 
+	const [startScreen, setStartScreen] = useState(true)
 	const [showWelcome, setShowWelcome] = useState(false)
 	const [showList, setShowList] = useState(false)
 	const [showPlanet, setShowPlanet] = useState(false)
@@ -30,15 +31,11 @@ export default function App() {
 	}, [])
 
 
-	function handleClick() {
-		if (showWelcome) {
-			return;
-		}
-		setShowWelcome(!showWelcome)
-
-		if (count === 0) {
-			setShowList(true)
-		}
+	function enterApp() {
+		setStartScreen(false)
+		setShowWelcome(true)
+		setShowList(true)
+		setShowPlanet(true)
 	}
 
 
@@ -46,15 +43,11 @@ export default function App() {
 		setShowWelcome(false);
 	}
 
-	// the entrance behavior and the toggle welcome behavior should be in two different functions. this is convoluted
-	// also, your welcome close behavior needs work
-	
-
 
 	return (
 		<div className='App'>
 			<Header 
-				onClick={handleClick}
+				onEnterApp={enterApp}
 				isClickable={!showWelcome}
 			/>
 			<div className='content-container'>
@@ -63,27 +56,25 @@ export default function App() {
 						<div className='loading'>loading...</div> 
 						: 
 					<>
-						{!showList &&  
+
+						{startScreen && 
 							<h3 className='prompt'>Click above to begin</h3>
 						}
-						
-						{showWelcome && showList && 
-							<WelcomeBox 
-								onWelcomeClose={closeWelcome}
-							/>
+
+
+						{showWelcome && 
+							<WelcomeBox onCloseWelcome={closeWelcome} />
 						}
 
 						{showList && 
-							<PlanetsList 
-								data={data}
-							/>
+							<PlanetsList data={data} />
 						}
-						
-						{showPlanet && 
-							<PlanetBox 
-								data={data} 
-							/>
+
+						{showPlanet &&
+							<PlanetBox data={data} />
 						}
+
+
 					</>
 				}	
 			</div>
@@ -91,4 +82,23 @@ export default function App() {
 	);
 }
 
+
+
+// {showWelcome && showList && 
+// 							<WelcomeBox 
+// 								onWelcomeClose={closeWelcome}
+// 							/>
+// 						}
+
+// 						{showList && 
+// 							<PlanetsList 
+// 								data={data}
+// 							/>
+// 						}
+						
+// 						{showPlanet && 
+// 							<PlanetBox 
+// 								data={data} 
+// 							/>
+// 						}
 
