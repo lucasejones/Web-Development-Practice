@@ -1,6 +1,7 @@
 .App {
 /*  text-align: center;*/
   background-color: #282c34;
+  background-image: linear-gradient(209deg, rgb(41, 44, 51), rgb(29 33 38));
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -27,13 +28,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 1rem;
 }
 
 .app-title, .app-title-small-screen {
   margin-bottom: 2rem;
   font-family: 'Star Jedi Logo Monoline';
   font-size: 3rem;
-  letter-spacing: 1.5px;
+/*  color: transparent;*/
+  letter-spacing: 2px;
+  padding: 1rem;
+  /*text-shadow: 1px 1px 5px black, 1px 1px 5px black;
+  color: #e0e000;
+*/
+  text-shadow: 2.5px 2.5px black, -2.5px -2.5px black, -2.5px 2.5px black, 2.5px -2.5px black;
+  color: #f2f3f4;
 }
 
 .app-title {
@@ -47,7 +56,16 @@
 .rebel-symbol {
   font-family: 'Star Jedi Rounded';
   font-size: 3rem;
+
+  /*background-image: linear-gradient(#e46262, #461616);
+  color: transparent;
+  background-clip: text;*/
+
+  color: #f2f3f4;
+  text-shadow: 1px 1px black, -1px -1px black, -1px 1px black, 1px -1px black;
+
   margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 
@@ -58,9 +76,28 @@
 
 .content-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  min-width: 90%;
-  max-width: 90%;
+  min-width: 80%;
+  max-width: 80%;
+/*  overflow: auto;*/
+/*  overflow: hidden;*/
+}
+
+.nav-group {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.nav-name {
+  font-family: 'Star Jedi Rounded';
+  letter-spacing: 1.5px;
+  color: #f2f3f4;
+  margin: 1rem;
 }
 
 .planet-box {
@@ -77,6 +114,7 @@
   border-radius: 6px;
   padding: 2rem;
   z-index: 0;
+
 }
 
 
@@ -90,12 +128,6 @@ img {
   z-index: -1;
 }
 
-
-.planet-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
 
 .planet-title {
   display: inline-block;
@@ -121,7 +153,7 @@ img {
   display: flex;
   flex-direction: row;
   width: 100%;
-  max-width: 80%;
+  max-width: 85%;
   margin: 1rem;
   margin-bottom: 4rem;
   padding: 1rem;
@@ -176,17 +208,17 @@ img {
 /*--Media Queries--*/
 /*-----------------*/
 
-@media screen and (max-width: 950px) {
+/*@media screen and (max-width: 950px) {
   .fetched-values {
     max-width: 380px;
   }
-}
+}*/
 
-@media screen and (max-width: 750px) {
+/*@media screen and (max-width: 750px) {
   .fetched-values {
     overflow: auto;
   }
-}
+}*/
 
 @media screen and (max-width: 700px) {
   .app-title {
@@ -203,7 +235,7 @@ img {
   .content-container {
     display: flex;
     align-items: center;
-    max-width: 90%;
+    max-width: 80%;
   }
 
   .planet-box {
@@ -212,8 +244,8 @@ img {
 
   .fetched {
     overflow: auto;
-    display: flex;
-    max-width: 92%;
+    max-width: 84%;
+    margin-left: 1.5rem;
   }
 
   .fetched-item {

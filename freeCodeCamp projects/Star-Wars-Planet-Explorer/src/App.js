@@ -1,6 +1,7 @@
 import './App.css';
 import Header from './Header.js'
 import PlanetBox from './PlanetBox.js';
+import PlanetsList from './PlanetsList.js'
 import { useState, useEffect} from 'react';
 
 export default function App() {
@@ -30,9 +31,14 @@ export default function App() {
 					!data ? 
 						<div className='loading'>loading...</div> 
 						: 
-					<PlanetBox data={data} />
+					<>
+						<PlanetsList data={data}/>
+						<PlanetBox data={data} />
+					</>
 				}	
 			</div>
 		</div>
 	);
 }
+
+

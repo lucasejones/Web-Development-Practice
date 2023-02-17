@@ -17,28 +17,28 @@ export default function FetchedData({ currentPlanet }) {
 	const keysArr = getKeysAndValues(currentPlanet)[0]
 	const valuesArr = getKeysAndValues(currentPlanet)[1]
 
+	let keys = []
+	keysArr.map(i => {
+		keys.push(
+			<li className='fetched-item' key={i}>{i}:</li>
+		)
+	})
+
+	let values = []
+	valuesArr.map(i => {
+		values.push(
+			<li className='fetched-item' key={i}>{i}</li>
+		)
+	})
+
 
 	return(
 		<div className='fetched'>
 			<div className='fetched-keys'>
-				{keysArr.map(i => {
-					return(
-						<li className='fetched-item' key={i}>{i}:</li>
-					)
-						
-					})
-
-				}
+				{keys}
 			</div>
 			<div className='fetched-values'>
-				{valuesArr.map(i => {
-					return(
-						<li className='fetched-item' key={i}>{i}</li>
-					)
-						
-					})
-
-				}
+				{values}
 			</div>
 		</div>
 	)
