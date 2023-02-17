@@ -53,7 +53,7 @@
   display: none;
 }
 
-.rebel-symbol {
+.rebel-symbol-enabled, .rebel-symbol-disabled {
   font-family: 'Star Jedi Rounded';
   font-size: 3rem;
 
@@ -69,13 +69,14 @@
   transition: 0.2s ease;
 }
 
-.rebel-symbol:hover {
+.rebel-symbol-enabled:hover {
   text-shadow: none;
   background-image: linear-gradient(#e46262, #461616);
   color: transparent;
   background-clip: text;
   cursor: pointer;
 }
+
 
 .prompt {
   font-family: 'Sterilict';
@@ -94,18 +95,37 @@
   border-radius: 6px;
   line-height: 1.5;
   margin-bottom: 2rem;
-/*  display: none;*/
 }
 
 .close-welcome {
   position: absolute;
   top: 0;
   right: 0;
-  margin: 6px 6px 0 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  margin: 0.2rem 0.2rem 0 0;
   padding: 0.2rem;
-  background: rgba(136, 136, 136, 0.5);
+  color: #858687;
+  background: rgba(60, 60, 60, 0.5);
+  border-radius: 4px;
   border: 2px solid grey;
   border-style: outset;
+  opacity: 0.7;
+  transition: 0.05s ease;
+}
+
+.close-welcome:hover {
+  cursor: pointer;
+  background: rgba(80, 80, 80, 0.5);
+}
+
+.close-welcome:active {
+  border-style: inset;
+  background: rgba(60, 60, 60, 0.5);
 }
 
 .welcome-tag {
@@ -114,7 +134,7 @@
   font-weight: bold;
   font-style: italic;
   padding: 0 1rem;
-
+  max-width: 70%;
 }
 
 .description {

@@ -14,6 +14,7 @@ export default function FetchedData({ currentPlanet }) {
 		return [keys, values]
 	}
 	
+	
 	const keysArr = getKeysAndValues(currentPlanet)[0]
 	const valuesArr = getKeysAndValues(currentPlanet)[1]
 

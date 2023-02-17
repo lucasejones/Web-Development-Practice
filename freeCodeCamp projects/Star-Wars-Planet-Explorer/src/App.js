@@ -7,8 +7,11 @@ import { useState, useEffect} from 'react';
 
 export default function App() {
 	const [data, setData] = useState(null);
-	const [showBeginning, setShowBeginning] = useState(false)
+
+	const [showWelcome, setShowWelcome] = useState(false)
+	const [showList, setShowList] = useState(false)
 	const [showPlanet, setShowPlanet] = useState(false)
+
 	const [count, setCount] = useState(0)
 	let url = 'https://swapi.dev/api/planets/'
 
@@ -28,18 +31,31 @@ export default function App() {
 
 
 	function handleClick() {
-		setCount(prevCount => prevCount + 1)
-		setShowBeginning(!showBeginning);
-		if (count > 1) {
-			// setShowPlanet(true)
+		if (showWelcome) {
+			return;
+		}
+		setShowWelcome(!showWelcome)
+
+		if (count === 0) {
+			setShowList(true)
 		}
 	}
+
+
+	function closeWelcome() {
+		setShowWelcome(false);
+	}
+
+	// the entrance behavior and the toggle welcome behavior should be in two different functions. this is convoluted
+	// also, your welcome close behavior needs work
+	
 
 
 	return (
 		<div className='App'>
 			<Header 
 				onClick={handleClick}
+				isClickable={!showWelcome}
 			/>
 			<div className='content-container'>
 				{
@@ -47,14 +63,27 @@ export default function App() {
 						<div className='loading'>loading...</div> 
 						: 
 					<>
-						{!showBeginning && 
+						{!showList &&  
 							<h3 className='prompt'>Click above to begin</h3>
 						}
 						
-						{showBeginning && <WelcomeBox />}
-						{showBeginning && <PlanetsList data={data}/>}
+						{showWelcome && showList && 
+							<WelcomeBox 
+								onWelcomeClose={closeWelcome}
+							/>
+						}
+
+						{showList && 
+							<PlanetsList 
+								data={data}
+							/>
+						}
 						
-						{showPlanet && <PlanetBox data={data} />}
+						{showPlanet && 
+							<PlanetBox 
+								data={data} 
+							/>
+						}
 					</>
 				}	
 			</div>

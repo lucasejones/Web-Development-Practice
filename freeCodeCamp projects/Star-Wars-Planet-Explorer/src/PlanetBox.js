@@ -78,8 +78,9 @@ export default function PlanetBox({ data }) {
 
 
 
-	// click once to display welcome box and list (needs random button too)
-	// click again to hide/unhide the welcome box as many times as you like, but keep planet list and random button (and planetbox if shown)
+	// click once to display welcome box and list /done
+	// click again to hide/unhide the welcome box as many times as you like, but keep planet list and random button (and planetbox if shown) (this is not working currently)
+	
 	// click a planet from list or from the random button to show planetbox
 
 

@@ -1,7 +1,15 @@
-export default function WelcomeBox() {
+export default function WelcomeBox({ onWelcomeClose }) {
 	return(
-		<div className='welcome-box'>
-			<button className='close-welcome'>X</button>
+		<div 
+			className='welcome-box'
+			onClick={onWelcomeClose}
+		>
+			<span 
+				className='close-welcome'
+				onClick={onWelcomeClose}
+			>
+				X
+			</span>
 			<p className='welcome-tag'>
 				Welcome to the Star Wars Planet Explorer!
 			</p>
@@ -14,6 +22,3 @@ export default function WelcomeBox() {
 		</div>
 	)
 }
-
-// get the close window button to work
-// optional: get the pressed down click event to work
