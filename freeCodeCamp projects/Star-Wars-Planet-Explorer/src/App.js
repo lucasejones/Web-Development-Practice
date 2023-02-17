@@ -6,6 +6,9 @@ import { useState, useEffect} from 'react';
 
 export default function App() {
 	const [data, setData] = useState(null);
+	const [showResults, setShowResults] = useState(false)
+	const [showPlanet, setShowPlanet] = useState(false)
+	const [count, setCount] = useState(0)
 	let url = 'https://swapi.dev/api/planets/'
 
 	useEffect(() => {
@@ -23,17 +26,39 @@ export default function App() {
 	}, [])
 
 
+	function handleClick() {
+		setCount(prevCount => prevCount + 1)
+		setShowResults(!showResults);
+		if (count > 1) {
+			setShowPlanet(true)
+		}
+	}
+
+
 	return (
 		<div className='App'>
-			<Header />
+			<Header 
+				onClick={handleClick}
+			/>
 			<div className='content-container'>
 				{
 					!data ? 
 						<div className='loading'>loading...</div> 
 						: 
 					<>
-						<PlanetsList data={data}/>
-						<PlanetBox data={data} />
+						{showResults && 
+							<div className='welcome-box'>
+								<p className='welcome-tag'>
+									Welcome to the Star Wars Planet Explorer!
+								</p>
+								<p className='description'>
+									Navigate to any planet using the menu below. Or, if you'd like, you can visit planets at random by clicking the random button.
+								</p>
+							</div>
+						}
+						{showResults && <PlanetsList data={data}/>}
+						
+						{showPlanet && <PlanetBox data={data} />}
 					</>
 				}	
 			</div>

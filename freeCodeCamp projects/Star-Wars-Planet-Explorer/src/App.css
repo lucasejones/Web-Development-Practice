@@ -65,8 +65,45 @@
   text-shadow: 1px 1px black, -1px -1px black, -1px 1px black, 1px -1px black;
 
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  transition: 0.2s ease;
 }
+
+.rebel-symbol:hover {
+  text-shadow: none;
+  background-image: linear-gradient(#e46262, #461616);
+  color: transparent;
+  background-clip: text;
+  cursor: pointer;
+}
+
+.welcome-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #222;
+  border: 2px ridge #dfde7b;
+  border-radius: 6px;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+/*  display: none;*/
+}
+
+.welcome-tag {
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0 1rem;
+
+}
+
+.description {
+  text-align: center;
+  max-width: 90%;
+  margin-bottom: 2rem;
+/*  display: none;*/
+}
+
 
 
 
@@ -85,19 +122,34 @@
 }
 
 .nav-group {
-  position: relative;
+/*  position: relative;*/
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   margin-bottom: 1rem;
+}
+
+.nav-group a {
+  text-decoration-color: white;
+  text-decoration: none;
+/*  list-style: none;*/
 }
 
 .nav-name {
   font-family: 'Star Jedi Rounded';
   letter-spacing: 1.5px;
   color: #f2f3f4;
+  padding-left: 0.4rem;
   margin: 1rem;
+  transition: 0.3s ease;
+}
+
+.nav-name:hover {
+  font-size: 1.15rem;
+  text-shadow: 0 0 2px white;
+  margin: 0.55rem;
 }
 
 .planet-box {
@@ -110,11 +162,12 @@
 /*  background-image: radial-gradient(rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.3) 90%), url(./Naboo.jpg);*/
 /*  background-size: cover;*/
 
-  border: 3px solid #222;
+/*  border: 3px solid #222;*/
+  border: 3px solid #111;
   border-radius: 6px;
   padding: 2rem;
   z-index: 0;
-
+/*  display: none;*/
 }
 
 
@@ -126,6 +179,7 @@ img {
   width: 100%;
   object-fit: cover;
   z-index: -1;
+  border-radius: 3px;
 }
 
 
@@ -138,7 +192,7 @@ img {
   font-style: italic;
   font-family: 'Star Jedi Rounded';
   font-size: 2.5rem;
-  text-shadow: 1px 1px 5px black;
+  text-shadow: 1px 1px 8px black;
   border-bottom: 4px solid white;
 }
 
