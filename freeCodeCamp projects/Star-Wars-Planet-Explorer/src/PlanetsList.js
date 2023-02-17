@@ -1,3 +1,5 @@
+// import Naboo from './images/Naboo.jpg'
+
 export default function PlanetsList({ data }) {
 	const items = []
 	data.map((i) => {
@@ -13,14 +15,17 @@ export default function PlanetsList({ data }) {
 					</li>
 				</a>
 			</div>
-
-			// <h4 className='nav-name' key={i.name}>{i.name.toLowerCase()}</h4>
 		)
 	})
 	
 	return(
+		// <div className='nav'>
 		<div className='nav-group'>
 			{items}
 		</div>
+			/*<div className='nav-image-box'>
+				<img src={Naboo} alt='Naboo' className='nav-image'/>
+			</div>*/
+		// </div>
 	)
 }

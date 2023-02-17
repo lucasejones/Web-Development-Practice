@@ -71,6 +71,22 @@ export default function PlanetBox({ data }) {
 		// clicking the symbol at any time from now on will hide the welcome box
 		// clicking either an item from the planetlist or the button will display the planetbox underneath
 
+	//I thought it would be more interactive to have the user click the rebel symbol to reveal some instructions and planet options. From there, when they click, they will see whatever planet matches their selection. Also, from then on, by clicking the same rebel symbol button, it will hide/unhide the welcome box but leave the planet list and planet box.
+
+
+
+
+
+
+	// click once to display welcome box and list (needs random button too)
+	// click again to hide/unhide the welcome box as many times as you like, but keep planet list and random button (and planetbox if shown)
+	// click a planet from list or from the random button to show planetbox
+
+
+
+
+
+
 
 	// make a component that allows navigation to a specific planet that essentially is a horizontal list of navigable planet names above the planet box. (1)
 
@@ -96,6 +112,7 @@ export default function PlanetBox({ data }) {
 			<img 
 				src={allImages[planet.name]} 
 				alt={'a depiction of ' + allImages[planet.name]}
+				className='planet-box-image'
 			/>
 			<h1 className='planet-title'>{planet.name === 'Yavin-IV' ? 'Yavin-iv' : planet.name}</h1>
 

@@ -2,11 +2,12 @@ import './App.css';
 import Header from './Header.js'
 import PlanetBox from './PlanetBox.js';
 import PlanetsList from './PlanetsList.js'
+import WelcomeBox from './WelcomeBox.js'
 import { useState, useEffect} from 'react';
 
 export default function App() {
 	const [data, setData] = useState(null);
-	const [showResults, setShowResults] = useState(false)
+	const [showBeginning, setShowBeginning] = useState(false)
 	const [showPlanet, setShowPlanet] = useState(false)
 	const [count, setCount] = useState(0)
 	let url = 'https://swapi.dev/api/planets/'
@@ -28,9 +29,9 @@ export default function App() {
 
 	function handleClick() {
 		setCount(prevCount => prevCount + 1)
-		setShowResults(!showResults);
+		setShowBeginning(!showBeginning);
 		if (count > 1) {
-			setShowPlanet(true)
+			// setShowPlanet(true)
 		}
 	}
 
@@ -46,17 +47,12 @@ export default function App() {
 						<div className='loading'>loading...</div> 
 						: 
 					<>
-						{showResults && 
-							<div className='welcome-box'>
-								<p className='welcome-tag'>
-									Welcome to the Star Wars Planet Explorer!
-								</p>
-								<p className='description'>
-									Navigate to any planet using the menu below. Or, if you'd like, you can visit planets at random by clicking the random button.
-								</p>
-							</div>
+						{!showBeginning && 
+							<h3 className='prompt'>Click above to begin</h3>
 						}
-						{showResults && <PlanetsList data={data}/>}
+						
+						{showBeginning && <WelcomeBox />}
+						{showBeginning && <PlanetsList data={data}/>}
 						
 						{showPlanet && <PlanetBox data={data} />}
 					</>
