@@ -20,4 +20,4 @@ This is a master repo for all the projects I've done that correspond to the free
   
   <img width="400" alt="Screenshot 2023-02-18 at 2 13 17 PM" src="https://user-images.githubusercontent.com/88989660/219903613-15acb2ad-644c-4884-b519-480ff90ca302.png">
  
- The Star Wars Planet Explorer project is also worth checking out, but is no longer being updated in this repo. Instead, for a current representation, please visit its specific repo [here](https://github.com/lucasejones/Star-Wars-Planet-Explorer).
+ The Star Wars Planet Explorer project using React is also worth checking out, but is no longer being updated in this repo. Instead, for a current representation, please visit its specific repo [here](https://github.com/lucasejones/Star-Wars-Planet-Explorer).
