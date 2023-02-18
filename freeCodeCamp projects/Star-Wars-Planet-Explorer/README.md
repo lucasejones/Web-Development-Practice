@@ -1,7 +1,8 @@
 # Star Wars Planet Explorer
 Visit all your favorite planets from Star Wars! Admire their enchanting vistas while you learn about things like the orbital period, climate, and gravity of each planet in this navigable experience. 
 
-![Demo Image](/Star-Wars-Planet-Explorer/Planet-Explorer-Demo-Image.jpg?raw=true"Planet-Explorer-Demo-Image")
+## Demo Image
+![Planet-Explorer-Demo-Image-Small](https://user-images.githubusercontent.com/88989660/219829346-42dd3a5b-800d-45fc-80b9-03390f061c11.jpg)
 
 ## Planet Randomization Concept: 
 Not sure where you'd like to fly to next? By clicking the button, you can randomly visit one! And if you use only the random button, there's some neat behavior under the hood. Here's how it works: 
