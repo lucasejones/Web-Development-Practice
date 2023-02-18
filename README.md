@@ -1,7 +1,7 @@
 
 # Hello! 
 
-This is a master repo for all the projects I've done that correspond to the freeCodeCamp curriculum. The particularly noteworthy efforts found in the freeCodeCamp projects folder are: 
+The particularly noteworthy efforts found in the freeCodeCamp projects folder are: 
 
  ## Landing Page
   -- uses plain HTML and CSS to present a hypothetical product's landing page.
