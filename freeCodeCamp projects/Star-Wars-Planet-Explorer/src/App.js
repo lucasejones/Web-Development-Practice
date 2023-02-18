@@ -19,9 +19,7 @@ export default function App() {
 			const url = 'https://swapi.dev/api/planets/'
 			const res = await fetch(url);
 			var data = await res.json()
-			
 			setData(data.results)
-			
 		}
 
 		fetchData();
@@ -53,7 +51,6 @@ export default function App() {
 						<div className='loading'>loading...</div> 
 						: 
 					<>
-
 						{startScreen && 
 							<h3 className='prompt'>Click above to begin</h3>
 						}
@@ -70,8 +67,6 @@ export default function App() {
 						{showPlanet &&
 							<PlanetBox data={data} />
 						}
-
-
 					</>
 				}	
 			</div>
