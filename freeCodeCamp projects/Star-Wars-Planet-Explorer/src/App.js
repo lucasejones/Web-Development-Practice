@@ -7,19 +7,16 @@ import { useState, useEffect} from 'react';
 
 export default function App() {
 	const [data, setData] = useState(null);
-
 	const [startScreen, setStartScreen] = useState(true)
 	const [showWelcome, setShowWelcome] = useState(false)
 	const [showList, setShowList] = useState(false)
 	const [showPlanet, setShowPlanet] = useState(false)
 
-	const [count, setCount] = useState(0)
-	let url = 'https://swapi.dev/api/planets/'
-
 	useEffect(() => {
 		console.log('initial render')
 
 		async function fetchData() {
+			const url = 'https://swapi.dev/api/planets/'
 			const res = await fetch(url);
 			var data = await res.json()
 			
@@ -81,24 +78,3 @@ export default function App() {
 		</div>
 	);
 }
-
-
-
-// {showWelcome && showList && 
-// 							<WelcomeBox 
-// 								onWelcomeClose={closeWelcome}
-// 							/>
-// 						}
-
-// 						{showList && 
-// 							<PlanetsList 
-// 								data={data}
-// 							/>
-// 						}
-						
-// 						{showPlanet && 
-// 							<PlanetBox 
-// 								data={data} 
-// 							/>
-// 						}
-

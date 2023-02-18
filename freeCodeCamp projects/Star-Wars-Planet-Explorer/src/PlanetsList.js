@@ -12,13 +12,13 @@ export default function PlanetsList({ data }) {
 		}
 
 		items.push(
-			<div key={i.name}>
+			<div className='nav-div' key={i.name}>
 				<a 
 					href='.planet-box'
 					onClick={handleClick}
 				>
 					<li className='nav-name'>
-						{i.name.toLowerCase()}
+						<span className='nav-item'>{i.name.toLowerCase()}</span>
 					</li>
 				</a>
 			</div>
